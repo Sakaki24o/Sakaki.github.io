@@ -1,238 +1,1186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cian Ramkissoon — Portfolio</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cian Ramkissoon — Software Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
 :root{
-  --bg:#080c12;--bg2:#0d1320;--bg3:#111827;
-  --blue:#38bdf8;--blue-dim:rgba(56,189,248,0.1);
-  --text:#e2e8f0;--muted:#64748b;--border:rgba(56,189,248,0.15);
-  --mono:'Courier New',Courier,monospace;
-  --display:'Segoe UI',system-ui,-apple-system,sans-serif;
+  --bg:#050506;
+  --surface:#0c0c0e;
+  --surface-2:#121215;
+  --line:rgba(255,255,255,.08);
+  --ink:#f4f3ef;
+  --muted:#8d8d94;
+  --brass:#c9a75f;
+  --brass-soft:rgba(201,167,95,.14);
+  --live:#41d98d;
+  --radius:14px;
+  --font-display:'Syne',sans-serif;
+  --font-body:'DM Sans',sans-serif;
+  --font-mono:'Space Mono',monospace;
 }
-body{background:var(--bg);color:var(--text);font-family:var(--mono);font-size:14px;line-height:1.7;overflow-x:hidden}
-body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(56,189,248,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(56,189,248,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 48px;background:rgba(8,12,18,0.95);border-bottom:1px solid var(--border)}
-.nav-logo{font-family:var(--display);font-weight:900;font-size:18px;color:var(--blue)}
-.nav-links{display:flex;gap:32px}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:12px;letter-spacing:2px;text-transform:uppercase;transition:color 0.2s}
-.nav-links a:hover{color:var(--blue)}
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 48px 80px;position:relative;z-index:1}
-.hero-orb{position:absolute;top:5%;right:-10%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(56,189,248,0.06) 0%,transparent 70%);pointer-events:none}
-.hero-tag{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--blue);margin-bottom:20px;display:flex;align-items:center;gap:12px}
-.hero-tag::before{content:'';display:block;width:40px;height:1px;background:var(--blue)}
-h1{font-family:var(--display);font-size:clamp(48px,9vw,108px);font-weight:900;line-height:0.9;letter-spacing:-3px;margin-bottom:28px}
-.line1{display:block;color:var(--text)}
-.line2{display:block;color:var(--blue)}
-.hero-desc{max-width:520px;color:var(--muted);font-size:14px;line-height:1.9;margin-bottom:40px}
-.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;font-family:var(--mono);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:all 0.2s ease}
-.btn-primary{background:var(--blue);color:#080c12;font-weight:700}
-.btn-primary:hover{background:#fff}
-.btn-ghost{border:1px solid var(--border);color:var(--muted)}
-.btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
-section{position:relative;z-index:1;padding:90px 48px}
-.section-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--blue);margin-bottom:14px;display:flex;align-items:center;gap:12px}
-.section-label::before{content:'';display:block;width:30px;height:1px;background:var(--blue)}
-h2{font-family:var(--display);font-size:clamp(30px,5vw,52px);font-weight:900;letter-spacing:-2px;line-height:1;margin-bottom:48px;color:var(--text)}
-#skills{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2px}
-.skill-card{background:var(--bg3);padding:28px;border:1px solid var(--border);transition:border-color 0.3s,background 0.3s;position:relative;overflow:hidden}
-.skill-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),transparent);transform:scaleX(0);transform-origin:left;transition:transform 0.4s ease}
-.skill-card:hover{border-color:rgba(56,189,248,0.4);background:rgba(56,189,248,0.04)}
-.skill-card:hover::before{transform:scaleX(1)}
-.skill-icon{font-size:22px;margin-bottom:12px}
-.skill-title{font-family:var(--display);font-weight:700;font-size:15px;color:var(--blue);margin-bottom:8px}
-.skill-desc{color:var(--muted);font-size:12px;margin-bottom:12px}
-.skill-tags{display:flex;flex-wrap:wrap;gap:6px}
-.tag{padding:3px 9px;font-size:10px;letter-spacing:1px;background:var(--blue-dim);color:var(--blue);border:1px solid var(--border);border-radius:2px}
-#project{background:var(--bg)}
-.project-card{border:1px solid var(--border);background:var(--bg2);padding:48px;position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
-.project-num{font-family:var(--display);font-size:100px;font-weight:900;color:rgba(56,189,248,0.05);line-height:1;position:absolute;top:16px;right:32px;pointer-events:none}
-.project-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;background:rgba(56,189,248,0.1);border:1px solid var(--border);border-radius:2px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:20px}
-.dot{width:6px;height:6px;border-radius:50%;background:var(--blue);animation:blink 1.5s infinite;display:inline-block}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
-.project-title{font-family:var(--display);font-size:32px;font-weight:900;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px}
-.project-desc{color:var(--muted);line-height:1.9;margin-bottom:24px;font-size:13px}
-.project-stack{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:28px}
-.stack-item{padding:5px 12px;border:1px solid var(--border);font-size:11px;color:var(--muted);letter-spacing:1px;background:rgba(255,255,255,0.02)}
-.project-features h4{font-family:var(--display);font-size:13px;font-weight:700;color:var(--blue);margin-bottom:14px;letter-spacing:1px}
-.feature-list{list-style:none}
-.feature-list li{padding:9px 0;border-bottom:1px solid var(--border);color:var(--muted);font-size:12px;display:flex;align-items:flex-start;gap:10px}
-.feature-list li::before{content:'&#x2192;';color:var(--blue);flex-shrink:0}
-.feature-list li:last-child{border-bottom:none}
-.code-block{background:var(--bg);border:1px solid var(--border);padding:20px;font-size:12px;line-height:1.8;overflow-x:auto;border-radius:2px;margin-top:20px}
-.code-header{display:flex;align-items:center;gap:7px;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--border)}
-.dot-r{width:10px;height:10px;border-radius:50%;background:#ff5f57;display:inline-block}
-.dot-y{width:10px;height:10px;border-radius:50%;background:#febc2e;display:inline-block}
-.dot-g{width:10px;height:10px;border-radius:50%;background:#28c840;display:inline-block}
-.fname{margin-left:auto;font-size:11px;color:var(--muted)}
-.kw{color:#818cf8}.fn{color:var(--blue)}.str{color:#86efac}.cm{color:var(--muted);font-style:italic}
-#experience{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.timeline{position:relative;padding-left:28px}
-.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--blue),transparent)}
-.timeline-item{position:relative;padding:0 0 48px 36px;opacity:0;transform:translateX(-16px);transition:opacity 0.5s ease,transform 0.5s ease}
-.timeline-item.visible{opacity:1;transform:translateX(0)}
-.timeline-dot{position:absolute;left:-39px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--blue);border:2px solid var(--bg2);box-shadow:0 0 10px var(--blue)}
-.timeline-date{font-size:11px;letter-spacing:2px;color:var(--blue);text-transform:uppercase;margin-bottom:6px}
-.timeline-role{font-family:var(--display);font-size:20px;font-weight:700;letter-spacing:-0.5px;margin-bottom:3px}
-.timeline-org{color:var(--muted);font-size:12px;margin-bottom:14px}
-.timeline-points{list-style:none}
-.timeline-points li{color:var(--muted);font-size:12px;padding:5px 0;display:flex;gap:10px;align-items:flex-start}
-.timeline-points li::before{content:'//';color:var(--blue);flex-shrink:0}
-#certificates{background:var(--bg)}
-.cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
-.cert-card{border:1px solid var(--border);padding:22px;background:var(--bg2);transition:border-color 0.3s,transform 0.3s;opacity:0;transform:translateY(20px);transition:opacity 0.5s,transform 0.5s,border-color 0.3s}
-.cert-card.visible{opacity:1;transform:translateY(0)}
-.cert-card:hover{border-color:rgba(56,189,248,0.5);transform:translateY(-3px) !important}
-.cert-year{font-size:10px;letter-spacing:2px;color:var(--blue);margin-bottom:8px;text-transform:uppercase}
-.cert-name{font-family:var(--display);font-size:14px;font-weight:700;line-height:1.3;margin-bottom:6px}
-.cert-org{font-size:11px;color:var(--muted)}
-#contact{background:var(--bg2);border-top:1px solid var(--border);text-align:center;padding:100px 48px}
-#contact h2{margin-bottom:16px}
-#contact p{color:var(--muted);max-width:460px;margin:0 auto 40px;font-size:13px}
-.contact-links{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
-.contact-link{display:flex;align-items:center;gap:10px;padding:14px 28px;border:1px solid var(--border);color:var(--text);text-decoration:none;font-size:12px;letter-spacing:1px;background:var(--bg3);transition:all 0.2s ease}
-.contact-link:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-dim)}
-footer{padding:24px 48px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--muted);position:relative;z-index:1}
-@media(max-width:768px){nav{padding:14px 20px}.nav-links{gap:16px}section,.hero{padding:70px 20px}.project-card{grid-template-columns:1fr;padding:28px}.project-num{display:none}footer{flex-direction:column;gap:6px;text-align:center}}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:var(--font-body);font-weight:300;
+  line-height:1.6;overflow-x:hidden;
+}
+::selection{background:var(--brass);color:#000}
+
+/* ---------- nav ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 42px;background:linear-gradient(to bottom,rgba(5,5,6,.92),rgba(5,5,6,0));backdrop-filter:blur(8px)}
+.logo{font-family:var(--font-mono);font-size:15px;letter-spacing:.08em;color:var(--ink);text-decoration:none}
+.logo span{color:var(--brass)}
+.nav-links{display:flex;gap:34px;list-style:none}
+.nav-links a{font-family:var(--font-mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);text-decoration:none;position:relative;padding:6px 0;transition:color .3s}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--brass);transition:width .35s cubic-bezier(.65,0,.35,1)}
+.nav-links a:hover,.nav-links a.active{color:var(--ink)}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.nav-cta{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--bg);background:var(--ink);border:1px solid var(--ink);padding:10px 20px;border-radius:8px;text-decoration:none;transition:background .3s,color .3s}
+.nav-cta:hover{background:transparent;color:var(--ink)}
+@media(max-width:860px){.nav-links{display:none}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:120px 42px 80px;overflow:hidden}
+#robot3d{position:absolute;inset:0;z-index:1;pointer-events:none}
+#robot3d canvas{display:block}
+@media(max-width:860px){#robot3d{opacity:.35}}
+.hero-inner{position:relative;z-index:2;max-width:1240px;margin:0 auto;width:100%}
+.status{display:inline-flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:100px;padding:8px 16px;margin-bottom:34px;background:rgba(12,12,14,.6)}
+.status .dot{width:7px;height:7px;border-radius:50%;background:var(--live);box-shadow:0 0 10px var(--live);animation:pulse 2.2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.hero-eyebrow{font-family:var(--font-mono);font-size:13px;color:var(--muted);letter-spacing:.1em;margin-bottom:6px}
+h1.name{font-family:var(--font-display);font-weight:800;font-size:clamp(58px,10.5vw,138px);line-height:.98;letter-spacing:-.02em;margin-bottom:26px}
+h1.name .line{display:block;overflow:hidden}
+h1.name .ch{display:inline-block;transform:translateY(115%);animation:rise .9s cubic-bezier(.22,1,.36,1) forwards}
+@keyframes rise{to{transform:translateY(0)}}
+h1 .thin{color:transparent;-webkit-text-stroke:1.5px rgba(244,243,239,.85)}
+.role-chip{display:inline-block;font-family:var(--font-mono);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--brass);border:1px solid var(--brass-soft);background:var(--brass-soft);padding:9px 18px;border-radius:8px;margin-bottom:28px}
+.hero-sub{max-width:520px;color:var(--muted);font-size:17.5px;margin-bottom:40px}
+.hero-sub strong{color:var(--ink);font-weight:500}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:52px}
+.btn{position:relative;display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;padding:16px 30px;border-radius:10px;transition:transform .2s ease;will-change:transform}
+.btn-primary{background:var(--ink);color:#000;border:1px solid var(--ink)}
+.btn-primary:hover{background:var(--brass);border-color:var(--brass)}
+.btn-ghost{color:var(--ink);border:1px solid var(--line);background:rgba(12,12,14,.5)}
+.btn-ghost:hover{border-color:var(--ink)}
+.btn .arr{transition:transform .3s}
+.btn:hover .arr{transform:translateX(5px)}
+.hero-tags{display:flex;gap:12px;flex-wrap:wrap}
+.tag{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);padding:8px 14px;border-radius:6px;transition:color .3s,border-color .3s,transform .2s;background:rgba(12,12,14,.55)}
+.tag:hover{color:var(--brass);border-color:var(--brass);transform:translateY(-3px)}
+.scroll-hint{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);font-family:var(--font-mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:10px;z-index:2}
+.scroll-hint::after{content:'';width:1px;height:44px;background:linear-gradient(var(--muted),transparent);animation:drip 1.8s infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}55%{transform:scaleY(1);transform-origin:top}56%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- sections ---------- */
+section{padding:120px 42px;position:relative}
+.wrap{max-width:1240px;margin:0 auto}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--brass);border:1px solid var(--line);border-radius:100px;padding:8px 18px;margin-bottom:26px}
+.eyebrow::before{content:'';width:6px;height:6px;background:var(--brass);border-radius:1px;transform:rotate(45deg)}
+h2{font-family:var(--font-display);font-weight:700;font-size:clamp(38px,5.4vw,64px);letter-spacing:-.015em;line-height:1.05;margin-bottom:16px}
+h2 .accent{color:transparent;-webkit-text-stroke:1.2px var(--brass)}
+.section-sub{color:var(--muted);font-size:17px;max-width:560px;margin-bottom:60px}
+
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- about ---------- */
+.about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:start}
+.about-copy p{color:var(--muted);font-size:17.5px;margin-bottom:22px}
+.about-copy strong{color:var(--ink);font-weight:500}
+.about-copy em{color:var(--brass);font-style:italic}
+.fact-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:10px 28px;transition:border-color .3s}
+.fact-card:hover{border-color:rgba(201,167,95,.35)}
+.fact{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.fact:last-child{border-bottom:none}
+.fact .k{font-family:var(--font-mono);font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}
+.fact .v{font-size:15px;text-align:right}
+.fact .v.live{color:var(--live);display:flex;align-items:center;gap:8px}
+.fact .v.live::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--live);box-shadow:0 0 8px var(--live)}
+.traits{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:70px}
+.trait{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;transition:transform .35s cubic-bezier(.22,1,.36,1),border-color .35s;position:relative;overflow:hidden}
+.trait::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--brass);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.trait:hover{transform:translateY(-8px);border-color:rgba(201,167,95,.35)}
+.trait:hover::before{transform:scaleX(1)}
+.trait .icon{font-size:20px;margin-bottom:16px;display:block;color:var(--brass)}
+.trait h3{font-family:var(--font-display);font-weight:600;font-size:17px;margin-bottom:10px}
+.trait p{color:var(--muted);font-size:13.5px;line-height:1.55}
+@media(max-width:960px){.about-grid{grid-template-columns:1fr}.traits{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.traits{grid-template-columns:1fr}}
+
+/* ---------- skills ---------- */
+#skills{background:var(--surface)}
+.skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.skill-card{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:32px;transition:border-color .3s,transform .35s cubic-bezier(.22,1,.36,1)}
+.skill-card:hover{border-color:rgba(201,167,95,.35);transform:translateY(-6px)}
+.skill-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
+.skill-head h3{font-family:var(--font-display);font-weight:600;font-size:19px}
+.skill-head .count{font-family:var(--font-mono);font-size:11px;color:var(--brass);border:1px solid var(--brass-soft);background:var(--brass-soft);padding:4px 10px;border-radius:6px}
+.skill-card>p{color:var(--muted);font-size:14px;margin-bottom:22px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{font-family:var(--font-mono);font-size:12px;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:9px 16px;display:inline-flex;align-items:center;gap:8px;transition:border-color .25s,transform .2s,background .25s;background:var(--surface-2)}
+.chip::before{content:'▸';color:var(--brass);font-size:10px}
+.chip:hover{border-color:var(--brass);transform:translateY(-3px) scale(1.03);background:var(--brass-soft)}
+.ticker{margin-top:76px;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 0;position:relative}
+.ticker-track{display:flex;gap:56px;white-space:nowrap;animation:scrollx 30s linear infinite;width:max-content}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker span{font-family:var(--font-mono);font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+.ticker span i{color:var(--brass);font-style:normal;margin-right:56px}
+@keyframes scrollx{to{transform:translateX(-50%)}}
+@media(max-width:860px){.skill-grid{grid-template-columns:1fr}}
+
+/* ---------- experience ---------- */
+.timeline{position:relative;max-width:820px}
+.timeline::before{content:'';position:absolute;left:7px;top:8px;bottom:8px;width:1px;background:var(--line)}
+.t-item{position:relative;padding:0 0 52px 46px}
+.t-item:last-child{padding-bottom:0}
+.t-item::before{content:'';position:absolute;left:0;top:8px;width:15px;height:15px;border-radius:50%;border:1px solid var(--brass);background:var(--bg);transition:background .3s,box-shadow .3s}
+.t-item:hover::before{background:var(--brass);box-shadow:0 0 16px rgba(201,167,95,.5)}
+.t-when{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--brass);margin-bottom:8px}
+.t-item h3{font-family:var(--font-display);font-weight:600;font-size:21px;margin-bottom:4px}
+.t-org{color:var(--muted);font-family:var(--font-mono);font-size:12.5px;margin-bottom:12px}
+.t-item p{color:var(--muted);font-size:15px;max-width:600px}
+
+/* ---------- projects ---------- */
+#projects{background:var(--surface)}
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.proj{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:border-color .3s;transform-style:preserve-3d;will-change:transform}
+.proj:hover{border-color:rgba(201,167,95,.4)}
+.proj-visual{height:190px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line)}
+.proj-visual .glyph{font-family:var(--font-display);font-weight:800;font-size:64px;color:transparent;-webkit-text-stroke:1px rgba(244,243,239,.35);transition:transform .5s cubic-bezier(.22,1,.36,1),-webkit-text-stroke-color .4s;user-select:none}
+.proj:hover .glyph{transform:scale(1.14) rotate(-3deg);-webkit-text-stroke-color:var(--brass)}
+.proj-visual .num{position:absolute;top:16px;left:18px;font-family:var(--font-mono);font-size:11px;color:var(--muted)}
+.proj-visual .year{position:absolute;bottom:14px;right:18px;font-family:var(--font-mono);font-size:11px;color:var(--muted)}
+.proj-body{padding:26px}
+.proj-body h3{font-family:var(--font-display);font-weight:600;font-size:19px;margin-bottom:10px}
+.proj-body p{color:var(--muted);font-size:14px;margin-bottom:18px;min-height:66px}
+.proj-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.proj-tags span{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:5px;padding:5px 9px}
+.proj-links{display:flex;gap:12px}
+.plink{flex:1;text-align:center;font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;padding:12px;border-radius:8px;transition:all .25s}
+.plink.solid{background:var(--ink);color:#000}
+.plink.solid:hover{background:var(--brass)}
+.plink.line{color:var(--ink);border:1px solid var(--line)}
+.plink.line:hover{border-color:var(--ink)}
+@media(max-width:1020px){.proj-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.proj-grid{grid-template-columns:1fr}}
+
+/* ---------- play chess ---------- */
+#play{background:var(--bg)}
+.chess-layout{display:grid;grid-template-columns:minmax(0,560px) 1fr;gap:44px;align-items:start}
+.board-frame{border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:var(--surface)}
+#chessBoard{display:grid;grid-template-columns:repeat(8,1fr);aspect-ratio:1/1;border-radius:8px;overflow:hidden;user-select:none}
+.sq{display:flex;align-items:center;justify-content:center;font-size:clamp(24px,4.6vw,42px);line-height:1;position:relative;transition:background .15s;cursor:pointer}
+.sq.lt{background:#1f1f26}
+.sq.dk{background:#111116}
+.sq.wp{color:#f2f0e8;text-shadow:0 2px 6px rgba(0,0,0,.6)}
+.sq.bp{color:#5f5f6a;text-shadow:0 1px 0 rgba(255,255,255,.15)}
+.sq.last{background:rgba(201,167,95,.13)}
+.sq.sel{box-shadow:inset 0 0 0 2px var(--brass)}
+.sq.dotm::after{content:'';width:22%;height:22%;border-radius:50%;background:rgba(201,167,95,.55);position:absolute}
+.sq.cap{box-shadow:inset 0 0 0 2px rgba(201,167,95,.7)}
+.sq:hover{filter:brightness(1.25)}
+.chess-side{display:flex;flex-direction:column;gap:18px}
+.ch-status{font-family:var(--font-mono);font-size:13px;letter-spacing:.08em;color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:16px 20px;background:var(--surface)}
+.ch-status.think{color:var(--brass)}
+.ch-controls{display:flex;gap:12px}
+.ch-controls select,.ch-controls button{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;border-radius:10px;padding:13px 18px;cursor:pointer;transition:all .25s}
+.ch-controls select{flex:1;background:var(--surface);color:var(--ink);border:1px solid var(--line);outline:none}
+.ch-controls select:hover{border-color:var(--brass)}
+.ch-controls button{background:var(--ink);color:#000;border:none}
+.ch-controls button:hover{background:var(--brass)}
+.ch-log{border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:16px 20px;height:210px;overflow-y:auto;font-family:var(--font-mono);font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px}
+.ch-log:empty::before{content:'Moves will appear here…';opacity:.5}
+.ch-log div{animation:login .3s ease}
+@keyframes login{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:none}}
+.ch-note{font-size:13px;color:var(--muted)}
+.ch-note em{color:var(--brass);font-style:normal}
+@media(max-width:900px){.chess-layout{grid-template-columns:1fr}}
+
+/* ---------- chatbot ---------- */
+.bot-fab{position:fixed;bottom:28px;right:28px;z-index:9000;width:60px;height:60px;border-radius:50%;background:var(--ink);color:#000;border:none;font-size:26px;cursor:pointer;box-shadow:0 8px 30px rgba(0,0,0,.6);transition:transform .3s cubic-bezier(.22,1,.36,1),background .3s;display:flex;align-items:center;justify-content:center}
+.bot-fab:hover{transform:scale(1.1) rotate(-8deg);background:var(--brass)}
+.bot-panel{position:fixed;bottom:104px;right:28px;z-index:9001;width:min(370px,calc(100vw - 40px));height:min(520px,calc(100vh - 140px));background:var(--surface);border:1px solid var(--line);border-radius:18px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 24px 70px rgba(0,0,0,.7);opacity:0;transform:translateY(24px) scale(.96);pointer-events:none;transition:opacity .35s,transform .35s cubic-bezier(.22,1,.36,1)}
+.bot-panel.open{opacity:1;transform:none;pointer-events:auto}
+.bot-head{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line);background:var(--surface-2)}
+.bot-head strong{font-family:var(--font-display);font-size:15px;display:block}
+.bot-head span{font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass)}
+.bot-head button{background:none;border:none;color:var(--muted);font-size:16px;cursor:pointer;transition:color .25s}
+.bot-head button:hover{color:var(--ink)}
+.bot-msgs{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:12px}
+.bmsg{max-width:85%;padding:12px 16px;border-radius:14px;font-size:14px;line-height:1.5;animation:msgin .3s cubic-bezier(.22,1,.36,1)}
+@keyframes msgin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.bmsg.bot{background:var(--surface-2);border:1px solid var(--line);color:var(--ink);align-self:flex-start;border-bottom-left-radius:4px}
+.bmsg.user{background:var(--brass);color:#000;align-self:flex-end;border-bottom-right-radius:4px}
+.bmsg a{color:var(--brass);text-decoration:none;border-bottom:1px solid var(--brass-soft)}
+.bmsg.user a{color:#000}
+.bmsg.typing{display:flex;gap:5px;padding:16px}
+.bmsg.typing i{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:tdots 1s infinite}
+.bmsg.typing i:nth-child(2){animation-delay:.15s}
+.bmsg.typing i:nth-child(3){animation-delay:.3s}
+@keyframes tdots{0%,100%{opacity:.3;transform:translateY(0)}50%{opacity:1;transform:translateY(-4px)}}
+.bot-chips{display:flex;gap:8px;flex-wrap:wrap;padding:0 18px 12px}
+.bot-chips button{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);background:none;border:1px solid var(--line);border-radius:100px;padding:8px 14px;cursor:pointer;transition:all .25s}
+.bot-chips button:hover{color:var(--brass);border-color:var(--brass)}
+.bot-input{display:flex;gap:10px;padding:14px 18px;border-top:1px solid var(--line);background:var(--surface-2)}
+.bot-input input{flex:1;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 14px;color:var(--ink);font-family:var(--font-body);font-size:14px;outline:none;transition:border-color .3s}
+.bot-input input:focus{border-color:var(--brass)}
+.bot-input button{background:var(--ink);color:#000;border:none;border-radius:10px;width:46px;cursor:pointer;font-size:15px;transition:background .3s}
+.bot-input button:hover{background:var(--brass)}
+
+/* ---------- scroll progress ---------- */
+#progress{position:fixed;top:0;left:0;height:2px;background:var(--brass);z-index:10000;width:0;box-shadow:0 0 8px rgba(201,167,95,.6)}
+
+/* ---------- contact ---------- */
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:start}
+.c-item{display:flex;align-items:center;justify-content:space-between;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 24px;margin-bottom:16px;text-decoration:none;color:var(--ink);transition:border-color .3s,transform .25s}
+.c-item:hover{border-color:rgba(201,167,95,.4);transform:translateX(6px)}
+.c-item .lab{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:5px}
+.c-item .val{font-size:15px}
+.c-item .go{color:var(--muted);transition:color .3s,transform .3s}
+.c-item:hover .go{color:var(--brass);transform:translate(3px,-3px)}
+.form-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:36px}
+.form-card h3{font-family:var(--font-mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:28px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.f-group{margin-bottom:18px}
+.f-group label{display:block;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-bottom:9px}
+.f-group input,.f-group textarea{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:15px 16px;color:var(--ink);font-family:var(--font-body);font-size:15px;transition:border-color .3s;outline:none;resize:vertical}
+.f-group input:focus,.f-group textarea:focus{border-color:var(--brass)}
+.send-btn{width:100%;background:var(--ink);color:#000;border:none;border-radius:10px;padding:17px;font-family:var(--font-mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:background .3s}
+.send-btn:hover{background:var(--brass)}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr}.f-row{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--line);padding:34px 42px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+footer p{font-family:var(--font-mono);font-size:11px;color:var(--muted);letter-spacing:.1em}
+footer .flinks{display:flex;gap:26px}
+footer .flinks a{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .3s}
+footer .flinks a:hover{color:var(--brass)}
+
+.toast{position:fixed;bottom:30px;left:50%;transform:translate(-50%,80px);background:var(--surface-2);border:1px solid var(--brass);color:var(--ink);font-family:var(--font-mono);font-size:12px;padding:14px 26px;border-radius:10px;z-index:9998;transition:transform .45s cubic-bezier(.22,1,.36,1);pointer-events:none}
+.toast.show{transform:translate(-50%,0)}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+  h1.name .ch{transform:none}
+}
+@media(max-width:640px){section{padding:90px 24px}nav{padding:16px 24px}.hero{padding:110px 24px 80px}}
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="nav-logo">CR/</div>
-  <div class="nav-links">
-    <a href="#skills">Skills</a>
-    <a href="#project">Project</a>
-    <a href="#experience">Experience</a>
-    <a href="#certificates">Certs</a>
-    <a href="#contact">Contact</a>
+<div class="toast" id="toast">Email copied to clipboard ✓</div>
+<div id="progress"></div>
+
+<!-- ================= CHATBOT ================= -->
+<button class="bot-fab hoverable" id="botFab" aria-label="Open chat">♞</button>
+<div class="bot-panel" id="botPanel">
+  <div class="bot-head">
+    <div><strong>CianBot</strong><span>● Ask me about Cian</span></div>
+    <button id="botClose" class="hoverable" aria-label="Close chat">✕</button>
   </div>
+  <div class="bot-msgs" id="botMsgs"></div>
+  <div class="bot-chips" id="botChips"></div>
+  <div class="bot-input">
+    <input id="botIn" placeholder="Type a question…" autocomplete="off">
+    <button id="botSend" class="hoverable" aria-label="Send">➤</button>
+  </div>
+</div>
+
+<nav>
+  <a class="logo hoverable" href="#top">&lt;CR <span>/</span>&gt;</a>
+  <ul class="nav-links">
+    <li><a class="hoverable" href="#about">About</a></li>
+    <li><a class="hoverable" href="#skills">Skills</a></li>
+    <li><a class="hoverable" href="#experience">Experience</a></li>
+    <li><a class="hoverable" href="#projects">Projects</a></li>
+    <li><a class="hoverable" href="#play">Play</a></li>
+    <li><a class="hoverable" href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta hoverable" href="#contact">Hire Me ↗</a>
 </nav>
 
-<section class="hero">
-  <div class="hero-orb"></div>
-  <div class="hero-tag">Available for opportunities</div>
-  <h1><span class="line1">Cian</span><span class="line2">Ramkissoon</span></h1>
-  <p class="hero-desc">Final-year BSc Computer Science with AI student at the University of Hertfordshire. Building intelligent, accessible systems &mdash; my final year project is an AI voice assistant that helps visually impaired users control their PC entirely through natural speech.</p>
-  <div class="hero-ctas">
-    <a href="#project" class="btn btn-primary">View My Project &rarr;</a>
-    <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <div id="robot3d"></div>
+  <div class="hero-inner">
+    <div class="status"><span class="dot"></span>Available for new projects</div>
+    <p class="hero-eyebrow">Hi there, I'm</p>
+    <h1 class="name" id="heroName">
+      <span class="line" data-text="Cian"></span>
+      <span class="line thin" data-text="Ramkissoon"></span>
+    </h1>
+    <span class="role-chip">✦ Software Developer · CS with AI</span>
+    <p class="hero-sub">I build <strong>clean, interactive software</strong> — from web apps and games to AI-driven systems — with a strong focus on user experience and thoughtful engineering.</p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn btn-primary magnetic hoverable">View My Work <span class="arr">→</span></a>
+      <a href="#contact" class="btn btn-ghost magnetic hoverable">Get In Touch</a>
+    </div>
+    <div class="hero-tags">
+      <span class="tag hoverable">◇ React</span>
+      <span class="tag hoverable">◇ Python</span>
+      <span class="tag hoverable">◇ Unity / C#</span>
+      <span class="tag hoverable">◇ AI &amp; ML</span>
+      <span class="tag hoverable">◇ Node.js</span>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+</header>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap">
+    <span class="eyebrow reveal">Who I Am</span>
+    <h2 class="reveal">About <span class="accent">Me</span></h2>
+    <p class="section-sub reveal">Developer, chess coach, and lifelong learner — building experiences people enjoy using.</p>
+
+    <div class="about-grid">
+      <div class="about-copy reveal">
+        <p>Hey, I'm <strong>Cian Ramkissoon</strong> — a software developer with a BSc in <strong>Computer Science with Artificial Intelligence</strong> from the University of Hertfordshire. I'm currently based in Johannesburg, South Africa, and open to opportunities in the UK and remotely.</p>
+        <p>I specialise in building interactive experiences — whether that's a <strong>React</strong> web platform, a mobile game in <strong>Unity</strong>, or a reinforcement-learning agent in <strong>Python</strong>. Clean code and thoughtful design go hand in hand for me — every detail matters.</p>
+        <p>Away from the keyboard I coach chess, compete in badminton, and ride motorcycles.</p>
+        <p><em>Always learning, always building.</em></p>
+      </div>
+      <div class="fact-card reveal">
+        <div class="fact"><span class="k">Role</span><span class="v">Software Developer</span></div>
+        <div class="fact"><span class="k">Education</span><span class="v">BSc Computer Science with AI</span></div>
+        <div class="fact"><span class="k">University</span><span class="v">University of Hertfordshire</span></div>
+        <div class="fact"><span class="k">Location</span><span class="v">Johannesburg, South Africa</span></div>
+        <div class="fact"><span class="k">Status</span><span class="v live">Open to opportunities</span></div>
+      </div>
+    </div>
+
+    <div class="traits">
+      <div class="trait reveal"><span class="icon">⌘</span><h3>Clean Code</h3><p>Readable, maintainable code with a focus on structure and best practices.</p></div>
+      <div class="trait reveal"><span class="icon">◈</span><h3>Eye for Design</h3><p>Every pixel and interaction matters — spacing, motion, and consistency.</p></div>
+      <div class="trait reveal"><span class="icon">♞</span><h3>Strategic Thinker</h3><p>Chess coach's mindset — plan ahead, spot patterns, and stay calm under pressure.</p></div>
+      <div class="trait reveal"><span class="icon">✦</span><h3>Fast Learner</h3><p>Quick to adapt to new tools and frameworks, turning challenges into growth.</p></div>
+    </div>
   </div>
 </section>
 
+<!-- ================= SKILLS ================= -->
 <section id="skills">
-  <div class="section-label">Expertise</div>
-  <h2>Technical Skills</h2>
-  <div class="skills-grid">
-    <div class="skill-card"><div class="skill-icon">&#x1F916;</div><div class="skill-title">AI &amp; Intelligent Systems</div><div class="skill-desc">Machine learning, adaptive systems, robotics, NLP, collective AI</div><div class="skill-tags"><span class="tag">Gemini API</span><span class="tag">SpeechRecognition</span><span class="tag">NLP</span><span class="tag">Threading</span></div></div>
-    <div class="skill-card"><div class="skill-icon">&#x1F4BB;</div><div class="skill-title">Software Development</div><div class="skill-desc">Full application development from architecture to deployment</div><div class="skill-tags"><span class="tag">Python</span><span class="tag">Java</span><span class="tag">C</span><span class="tag">SQL</span><span class="tag">HTML/CSS</span></div></div>
-    <div class="skill-card"><div class="skill-icon">&#x1F5C4;</div><div class="skill-title">Systems &amp; Databases</div><div class="skill-desc">Relational databases, OS, networking, software architecture</div><div class="skill-tags"><span class="tag">SQL</span><span class="tag">Data Modelling</span><span class="tag">OS &amp; Networks</span><span class="tag">Architecture</span></div></div>
-    <div class="skill-card"><div class="skill-icon">&#x2601;</div><div class="skill-title">Microsoft &amp; IT Support</div><div class="skill-desc">Certified M365 and Excel; hands-on IT support and business integrations</div><div class="skill-tags"><span class="tag">Microsoft 365</span><span class="tag">Excel</span><span class="tag">Cyber Security</span><span class="tag">Git</span></div></div>
-    <div class="skill-card"><div class="skill-icon">&#x1F3A8;</div><div class="skill-title">Creative &amp; Media</div><div class="skill-desc">2D/3D animation, illustration, video production, script writing</div><div class="skill-tags"><span class="tag">2D/3D Art</span><span class="tag">Animation</span><span class="tag">Video Production</span></div></div>
-    <div class="skill-card"><div class="skill-icon">&#x1F91D;</div><div class="skill-title">Communication &amp; Leadership</div><div class="skill-desc">Client presentations, teaching, coaching &mdash; IELTS 7.5 (C1)</div><div class="skill-tags"><span class="tag">Presenting</span><span class="tag">Teaching</span><span class="tag">Coaching</span><span class="tag">IT Support</span></div></div>
+  <div class="wrap">
+    <span class="eyebrow reveal">Tech Stack</span>
+    <h2 class="reveal">Skills &amp; <span class="accent">Expertise</span></h2>
+    <p class="section-sub reveal">The tools and technologies I work with to bring ideas to life.</p>
+
+    <div class="skill-grid">
+      <div class="skill-card reveal">
+        <div class="skill-head"><h3>{ } Languages</h3><span class="count">05</span></div>
+        <p>The foundation of everything I build.</p>
+        <div class="chips">
+          <span class="chip hoverable">Python</span>
+          <span class="chip hoverable">JavaScript ES6+</span>
+          <span class="chip hoverable">C#</span>
+          <span class="chip hoverable">SQL</span>
+          <span class="chip hoverable">HTML5 / CSS3</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-head"><h3>◎ Frameworks &amp; Engines</h3><span class="count">04</span></div>
+        <p>Ecosystems I navigate with confidence.</p>
+        <div class="chips">
+          <span class="chip hoverable">React</span>
+          <span class="chip hoverable">Node.js</span>
+          <span class="chip hoverable">Unity 6</span>
+          <span class="chip hoverable">Express</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-head"><h3>◇ AI &amp; Machine Learning</h3><span class="count">04</span></div>
+        <p>Intelligent, adaptive systems from theory to code.</p>
+        <div class="chips">
+          <span class="chip hoverable">Reinforcement Learning</span>
+          <span class="chip hoverable">Monte Carlo Methods</span>
+          <span class="chip hoverable">Kalman Filters</span>
+          <span class="chip hoverable">Local LLMs</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-head"><h3>✳ Tools &amp; Other</h3><span class="count">05</span></div>
+        <p>The workflow essentials that keep things running.</p>
+        <div class="chips">
+          <span class="chip hoverable">Git &amp; GitHub</span>
+          <span class="chip hoverable">FFmpeg / HLS</span>
+          <span class="chip hoverable">SQLite / MySQL</span>
+          <span class="chip hoverable">Microsoft 365</span>
+          <span class="chip hoverable">WSL2 / Linux</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ticker reveal">
+      <div class="ticker-track" id="tickerTrack">
+        <span>Python<i></i>JavaScript<i></i>React<i></i>C#<i></i>Unity<i></i>Node.js<i></i>Reinforcement Learning<i></i>SQL<i></i>Git<i></i>FFmpeg<i></i></span>
+        <span>Python<i></i>JavaScript<i></i>React<i></i>C#<i></i>Unity<i></i>Node.js<i></i>Reinforcement Learning<i></i>SQL<i></i>Git<i></i>FFmpeg<i></i></span>
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="project">
-  <div class="section-label">Final Year Project</div>
-  <h2>Featured Work</h2>
-  <div class="project-card">
-    <div class="project-num">01</div>
-    <div>
-      <div class="project-badge"><span class="dot"></span> Python &middot; AI &middot; Accessibility</div>
-      <div class="project-title">AI Voice<br>Assistant</div>
-      <p class="project-desc">A voice-activated desktop assistant built to empower visually impaired users to control their Windows PC entirely through natural speech. Inspired by my sister, who is partially blind &mdash; addressing the gap where screen readers are passive and commercial assistants like Alexa or Siri can only handle one command at a time.</p>
-      <div class="project-stack"><span class="stack-item">Python</span><span class="stack-item">Google Gemini API</span><span class="stack-item">SpeechRecognition</span><span class="stack-item">pyttsx3 TTS</span><span class="stack-item">customtkinter</span><span class="stack-item">Threading</span></div>
-    </div>
-    <div>
-      <div class="project-features">
-        <h4>// Key Features</h4>
-        <ul class="feature-list">
-          <li>Voice-controlled app launcher &mdash; open Word, Excel, Chrome and more by speaking</li>
-          <li>Multi-command processing &mdash; handles simultaneous instructions, unlike Alexa or Siri</li>
-          <li>Google Gemini integration with multi-model fallback for reliable AI responses</li>
-          <li>Real-time text-to-speech feedback so users always know what the system is doing</li>
-          <li>Multithreaded architecture preventing UI freezes during live audio capture</li>
-          <li>Ambient noise calibration for accurate recognition in real environments</li>
-        </ul>
-      </div>
-      <div class="code-block">
-        <div class="code-header"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span><span class="fname">AI_Assistant.py</span></div>
-        <span class="cm"># Multi-model fallback &mdash; tries Gemini models in order</span><br>
-        <span class="kw">def</span> <span class="fn">ask_gemini</span>(prompt):<br>
-        &nbsp;&nbsp;models = [<span class="str">'gemini-2.5-flash'</span>, <span class="str">'gemini-2.0-flash'</span>]<br>
-        &nbsp;&nbsp;<span class="kw">for</span> model <span class="kw">in</span> models:<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">try</span>:<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;response = client.models.<span class="fn">generate_content</span>(<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;model=model, contents=prompt)<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> response.text.<span class="fn">replace</span>(<span class="str">"*"</span>, <span class="str">""</span>)<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">except</span>: <span class="kw">continue</span>
-      </div>
-    </div>
-  </div>
-</section>
-
+<!-- ================= EXPERIENCE ================= -->
 <section id="experience">
-  <div class="section-label">Career</div>
-  <h2>Work Experience</h2>
-  <div class="timeline">
-    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">Apr 2026 &ndash; Present</div><div class="timeline-role">Chess Coach</div><div class="timeline-org">Kings and Queens Chess Club &middot; Primary Schools, UK &middot; Casual</div><ul class="timeline-points"><li>Delivering chess coaching sessions to primary school pupils, developing strategic thinking and problem-solving skills</li><li>Adapting teaching to varying age groups and abilities; holds Enhanced DBS Certificate</li><li>Chess rating: 1100</li></ul></div>
-    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">Sep 2025 &ndash; Present</div><div class="timeline-role">Student Guide</div><div class="timeline-org">University of Hertfordshire &middot; 1-year contract</div><ul class="timeline-points"><li>Representing the university at open days, guiding prospective students and families</li><li>Communicating course information and student experience to diverse audiences</li></ul></div>
-    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">Jun 2024 &ndash; Sep 2025</div><div class="timeline-role">IT Support Technician</div><div class="timeline-org">NRW Services</div><ul class="timeline-points"><li>First-line technical support; software upgrades and Microsoft 365 integrations</li><li>Advised on IT improvements and supported new business through client demos</li></ul></div>
-    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">May 2023 &ndash; May 2024</div><div class="timeline-role">Sports Activator</div><div class="timeline-org">University of Hertfordshire</div><ul class="timeline-points"><li>Organised and led sports sessions; applied safeguarding and first aid principles</li></ul></div>
-    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">Oct 2020 &ndash; Dec 2021</div><div class="timeline-role">Media Creator</div><div class="timeline-org">Cael Media &middot; South Africa</div><ul class="timeline-points"><li>Produced 2D/3D animations, scripts and video content; performed voice-overs</li></ul></div>
-    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">Jan 2019 &ndash; Dec 2019</div><div class="timeline-role">Teacher &amp; Volleyball Coach</div><div class="timeline-org">Glen Austin &amp; Midrand Schools &middot; South Africa</div><ul class="timeline-points"><li>Computer Studies and English teacher; coached volleyball and organised school events</li></ul></div>
+  <div class="wrap">
+    <span class="eyebrow reveal">My Journey</span>
+    <h2 class="reveal">Experience &amp; <span class="accent">Education</span></h2>
+    <p class="section-sub reveal">Where I've worked, coached, and studied along the way.</p>
+
+    <div class="timeline">
+      <div class="t-item reveal">
+        <div class="t-when">2023 — 2026</div>
+        <h3>BSc Computer Science with Artificial Intelligence</h3>
+        <div class="t-org">University of Hertfordshire · Hatfield, UK</div>
+        <p>Specialised in intelligent adaptive systems — reinforcement learning, Monte Carlo methods, Kalman filtering — alongside core software engineering.</p>
+      </div>
+      <div class="t-item reveal">
+        <div class="t-when">2024 — 2026</div>
+        <h3>Chess Coach</h3>
+        <div class="t-org">Kings &amp; Queens Chess Club</div>
+        <p>Coached juniors from beginner to competitive level. Enhanced DBS-certified with safeguarding training — clear communication and patience are the job.</p>
+      </div>
+      <div class="t-item reveal">
+        <div class="t-when">2024 — 2026</div>
+        <h3>Student Guide</h3>
+        <div class="t-org">University of Hertfordshire</div>
+        <p>Front-line ambassador for open days and campus events — public speaking, tours, and helping prospective students find their footing.</p>
+      </div>
+      <div class="t-item reveal">
+        <div class="t-when">Earlier</div>
+        <h3>Media, Teaching &amp; Coaching</h3>
+        <div class="t-org">South Africa</div>
+        <p>Background in media creation, teaching, volleyball coaching, and sales — the communication foundation everything else is built on.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="certificates">
-  <div class="section-label">Qualifications</div>
-  <h2>Certifications</h2>
-  <a href="Cian_Ramkissoon_Certificates.pdf" download class="btn btn-ghost" style="margin-bottom:36px">&#x2193; Download All Certificates (PDF)</a>
-  <div class="cert-grid">
-    <div class="cert-card"><div class="cert-year">Oct 2025</div><div class="cert-name">Cyber Security Awareness</div><div class="cert-org">MetaCompliance</div></div>
-    <div class="cert-card"><div class="cert-year">Oct 2024</div><div class="cert-name">Microsoft 365</div><div class="cert-org">LinkedIn Learning</div></div>
-    <div class="cert-card"><div class="cert-year">Oct 2024</div><div class="cert-name">Excel Essential Training</div><div class="cert-org">LinkedIn Learning &middot; Microsoft 365</div></div>
-    <div class="cert-card"><div class="cert-year">Feb 2024</div><div class="cert-name">Community Sports Leadership Level 2</div><div class="cert-org">Leadership Skills Foundation</div></div>
-    <div class="cert-card"><div class="cert-year">Sep 2023</div><div class="cert-name">Safeguarding &amp; Protecting Children</div><div class="cert-org">UK Coaching &middot; 2 CIMSPA CPD Points</div></div>
-    <div class="cert-card"><div class="cert-year">Jun 2022</div><div class="cert-name">IELTS Academic &mdash; Band 7.5</div><div class="cert-org">British Council &middot; C1 English</div></div>
-    <div class="cert-card"><div class="cert-year">Jan 2023</div><div class="cert-name">UK Driving Licence</div><div class="cert-org">DVLA &middot; AM, A, B, BE</div></div>
-    <div class="cert-card"><div class="cert-year">Dec 2021</div><div class="cert-name">National Senior Certificate</div><div class="cert-org">Umalusi &middot; South Africa</div></div>
+<!-- ================= PROJECTS ================= -->
+<section id="projects">
+  <div class="wrap">
+    <span class="eyebrow reveal">Selected Work</span>
+    <h2 class="reveal">Featured <span class="accent">Projects</span></h2>
+    <p class="section-sub reveal">A few things I've designed, built, and shipped.</p>
+
+    <div class="proj-grid">
+      <div class="proj tilt reveal">
+        <div class="proj-visual"><span class="num">01</span><span class="glyph">RIFT</span><span class="year">2026</span></div>
+        <div class="proj-body">
+          <h3>Riftborn</h3>
+          <p>A monster-collecting mobile RPG built in Unity 6 — 24-creature codex, 3-stage evolutions, full F2P economy with dual currencies and battle passes.</p>
+          <div class="proj-tags"><span>Unity 6</span><span>C#</span><span>AdMob</span><span>IAP</span></div>
+          <div class="proj-links"><a class="plink solid hoverable" href="#contact">Details ↗</a><a class="plink line hoverable" href="https://github.com/Sakaki24o" target="_blank" rel="noopener">GitHub</a></div>
+        </div>
+      </div>
+      <div class="proj tilt reveal">
+        <div class="proj-visual"><span class="num">02</span><span class="glyph">VOX</span><span class="year">2026</span></div>
+        <div class="proj-body">
+          <h3>AI Voice Assistant</h3>
+          <p>Final-year project — a voice assistant that listens, understands intent, and talks back. Speech recognition, NLP intent handling, and text-to-speech in Python.</p>
+          <div class="proj-tags"><span>Python</span><span>Speech</span><span>NLP</span><span>FYP</span></div>
+          <div class="proj-links"><a class="plink solid hoverable" href="#contact">Details ↗</a><a class="plink line hoverable" href="https://github.com/Sakaki24o" target="_blank" rel="noopener">GitHub</a></div>
+        </div>
+      </div>
+      <div class="proj tilt reveal">
+        <div class="proj-visual"><span class="num">03</span><span class="glyph">21♠</span><span class="year">2026</span></div>
+        <div class="proj-body">
+          <h3>Blackjack RL Agent</h3>
+          <p>Reinforcement-learning Blackjack agent in Python using Monte Carlo Exploring Starts and On-Policy First-Visit MC Control — theory made playable.</p>
+          <div class="proj-tags"><span>Python</span><span>RL</span><span>Monte Carlo</span></div>
+          <div class="proj-links"><a class="plink solid hoverable" href="#contact">Details ↗</a><a class="plink line hoverable" href="https://github.com/Sakaki24o" target="_blank" rel="noopener">GitHub</a></div>
+        </div>
+      </div>
+      <div class="proj tilt reveal">
+        <div class="proj-visual"><span class="num">04</span><span class="glyph">?!</span><span class="year">2026</span></div>
+        <div class="proj-body">
+          <h3>Adaptive Quiz App</h3>
+          <p>Interactive revision application generated from lecture material — turning a full university module into a self-testing study tool.</p>
+          <div class="proj-tags"><span>JavaScript</span><span>UI/UX</span></div>
+          <div class="proj-links"><a class="plink solid hoverable" href="#contact">Details ↗</a><a class="plink line hoverable" href="https://github.com/Sakaki24o" target="_blank" rel="noopener">GitHub</a></div>
+        </div>
+      </div>
+      <div class="proj tilt reveal">
+        <div class="proj-visual"><span class="num">05</span><span class="glyph">&lt;/&gt;</span><span class="year">2026</span></div>
+        <div class="proj-body">
+          <h3>Portfolio Website</h3>
+          <p>This site — a fully interactive, hand-built portfolio with a 3D robot that tracks your cursor, magnetic buttons, and scroll-driven motion.</p>
+          <div class="proj-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+          <div class="proj-links"><a class="plink solid hoverable" href="#top">You're here ↺</a><a class="plink line hoverable" href="https://github.com/Sakaki24o" target="_blank" rel="noopener">GitHub</a></div>
+        </div>
+      </div>
+      <div class="proj tilt reveal">
+        <div class="proj-visual"><span class="num">06</span><span class="glyph">♞→</span><span class="year">Next</span></div>
+        <div class="proj-body">
+          <h3>Your Project?</h3>
+          <p>I'm open to freelance work and full-time opportunities. Whether it's a quick question or a big idea — my inbox is always open.</p>
+          <div class="proj-tags"><span>Collaboration</span><span>Open</span></div>
+          <div class="proj-links"><a class="plink solid hoverable" href="#contact">Start a conversation ↗</a></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
+<!-- ================= PLAY CHESS ================= -->
+<section id="play">
+  <div class="wrap">
+    <span class="eyebrow reveal">Challenge Me</span>
+    <h2 class="reveal">Play the <span class="accent">Coach</span></h2>
+    <p class="section-sub reveal">I coach chess for a living — so naturally, my site plays chess. You're white. Good luck.</p>
+
+    <div class="chess-layout">
+      <div class="board-frame reveal"><div id="chessBoard"></div></div>
+      <aside class="chess-side reveal">
+        <div class="ch-status" id="chStatus">Your move — you're white ♔</div>
+        <div class="ch-controls">
+          <select id="chDiff" class="hoverable">
+            <option value="casual">♙ Casual</option>
+            <option value="club" selected>♘ Club Player</option>
+            <option value="coach">♛ Coach Mode</option>
+          </select>
+          <button id="chNew" class="hoverable">New Game</button>
+        </div>
+        <div class="ch-log" id="chLog"></div>
+        <p class="ch-note">This engine was <em>built from scratch in vanilla JavaScript</em> — move generation, check detection, castling, en passant, and a minimax search with alpha-beta pruning. No chess library involved.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
 <section id="contact">
-  <div class="section-label" style="justify-content:center">Let's Connect</div>
-  <h2>Get In Touch</h2>
-  <p>Open to graduate roles, internships, and opportunities in AI, software development, and IT. Based in Hertfordshire &mdash; available to work flexibly.</p>
-  <div class="contact-links">
-    <a href="mailto:cyanramkissoon@gmail.com" class="contact-link">&#x2709; cyanramkissoon@gmail.com</a>
-    <a href="tel:07533187464" class="contact-link">&#x1F4DE; 07533 187 464</a>
+  <div class="wrap">
+    <span class="eyebrow reveal">Get In Touch</span>
+    <h2 class="reveal">Let's Work <span class="accent">Together</span></h2>
+    <p class="section-sub reveal">Have a project in mind or just want to say hello? I'd love to hear from you.</p>
+
+    <div class="contact-grid">
+      <div class="reveal">
+        <a class="c-item hoverable" href="#" id="copyEmail">
+          <div><span class="lab">Email</span><span class="val">cyanramkissoon@gmail.com</span></div>
+          <span class="go">⧉</span>
+        </a>
+        <a class="c-item hoverable" href="https://github.com/Sakaki24o" target="_blank" rel="noopener">
+          <div><span class="lab">GitHub</span><span class="val">Sakaki24o</span></div>
+          <span class="go">↗</span>
+        </a>
+        <a class="c-item hoverable" href="https://sakaki24o.github.io/Sakaki.github.io" target="_blank" rel="noopener">
+          <div><span class="lab">Current Site</span><span class="val">sakaki24o.github.io</span></div>
+          <span class="go">↗</span>
+        </a>
+        <div class="c-item">
+          <div><span class="lab">Location</span><span class="val">Johannesburg, South Africa · Open to UK &amp; remote</span></div>
+          <span class="go">◎</span>
+        </div>
+      </div>
+
+      <div class="form-card reveal">
+        <h3>— Send a Message</h3>
+        <div class="f-row">
+          <div class="f-group"><label>Full Name *</label><input type="text" id="fName" placeholder="Your name"></div>
+          <div class="f-group"><label>Email Address *</label><input type="email" id="fEmail" placeholder="you@example.com"></div>
+        </div>
+        <div class="f-group"><label>Subject</label><input type="text" id="fSubject" placeholder="Project collaboration…"></div>
+        <div class="f-group"><label>Message *</label><textarea id="fMsg" rows="5" placeholder="Tell me about your project or idea…"></textarea></div>
+        <button class="send-btn hoverable" id="sendBtn">Send Message ✦</button>
+      </div>
+    </div>
   </div>
 </section>
 
 <footer>
-  <span>&copy; 2025 Cian Ramkissoon</span>
-  <span style="color:var(--blue)">BSc CS with AI &middot; University of Hertfordshire</span>
+  <p>© 2026 Cian Ramkissoon · Built with ♞ and caffeine</p>
+  <div class="flinks">
+    <a class="hoverable" href="#top">Home</a>
+    <a class="hoverable" href="#about">About</a>
+    <a class="hoverable" href="#projects">Projects</a>
+    <a class="hoverable" href="#contact">Contact</a>
+  </div>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if(e.isIntersecting){
-      const d = parseInt(e.target.dataset.delay||0);
-      setTimeout(()=>e.target.classList.add('visible'), d);
-    }
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- split hero name into letters ---------- */
+document.querySelectorAll('#heroName .line').forEach((line, li) => {
+  const text = line.dataset.text;
+  [...text].forEach((c, i) => {
+    const s = document.createElement('span');
+    s.className = 'ch';
+    s.textContent = c;
+    s.style.animationDelay = (li * 0.18 + i * 0.045) + 's';
+    line.appendChild(s);
   });
-}, {threshold:0.1});
-document.querySelectorAll('.timeline-item').forEach((el,i)=>{el.dataset.delay=i*120;obs.observe(el);});
-document.querySelectorAll('.cert-card').forEach((el,i)=>{el.dataset.delay=(i%4)*80;obs.observe(el);});
+});
+
+/* ---------- magnetic buttons ---------- */
+if (!reduceMotion) document.querySelectorAll('.magnetic').forEach(btn => {
+  btn.addEventListener('mousemove', e => {
+    const r = btn.getBoundingClientRect();
+    const x = e.clientX - r.left - r.width/2;
+    const y = e.clientY - r.top - r.height/2;
+    btn.style.transform = `translate(${x*0.25}px, ${y*0.35}px)`;
+  });
+  btn.addEventListener('mouseleave', () => btn.style.transform = '');
+});
+
+/* ---------- 3D robot hero (Three.js) ---------- */
+(function(){
+  const mount = document.getElementById('robot3d');
+  if (!window.THREE || !mount) return;
+
+  const scene = new THREE.Scene();
+  scene.fog = new THREE.Fog(0x050506, 9, 17);
+
+  const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 50);
+  camera.position.set(0, 1.5, 7.2);
+  camera.lookAt(0, 1.3, 0);
+
+  const renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  mount.appendChild(renderer.domElement);
+
+  function sizeRobot(){
+    const w = mount.offsetWidth, h = mount.offsetHeight;
+    renderer.setSize(w, h);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    robot.position.x = w > 900 ? 2.0 : 0;
+  }
+
+  /* --- lights: key, cool rim, brass fill --- */
+  scene.add(new THREE.AmbientLight(0x404048, 0.6));
+  const key = new THREE.DirectionalLight(0xffffff, 1.15);
+  key.position.set(3, 6, 5); scene.add(key);
+  const rim = new THREE.DirectionalLight(0x9db4ff, 0.9);
+  rim.position.set(-5, 3, -4); scene.add(rim);
+  const brassLight = new THREE.PointLight(0xc9a75f, 1.1, 14);
+  brassLight.position.set(-3, 2.2, 3.2); scene.add(brassLight);
+  const under = new THREE.PointLight(0x3a3a44, 0.6, 10);
+  under.position.set(0, -1, 2.5); scene.add(under);
+
+  /* --- materials --- */
+  const bodyMat   = new THREE.MeshStandardMaterial({color: 0x0c0c0f, metalness: 0.75, roughness: 0.3});
+  const chromeMat = new THREE.MeshStandardMaterial({color: 0xffffff, metalness: 1.0, roughness: 0.08});
+  const jointMat  = new THREE.MeshStandardMaterial({color: 0x1a1a1f, metalness: 0.6, roughness: 0.45});
+  const brassMat  = new THREE.MeshStandardMaterial({color: 0xc9a75f, metalness: 0.9, roughness: 0.3, emissive: 0x6b5220, emissiveIntensity: 0.6});
+
+  const robot = new THREE.Group();
+  scene.add(robot);
+
+  /* --- head (chrome sphere on neck, tracks cursor hardest) --- */
+  const head = new THREE.Group();
+  const skull = new THREE.Mesh(new THREE.SphereGeometry(0.55, 48, 48), chromeMat);
+  head.add(skull);
+  const eyeGeo = new THREE.SphereGeometry(0.045, 16, 16);
+  const eyeL = new THREE.Mesh(eyeGeo, brassMat); eyeL.position.set(-0.16, 0.08, 0.51);
+  const eyeR = new THREE.Mesh(eyeGeo, brassMat); eyeR.position.set( 0.16, 0.08, 0.51);
+  head.add(eyeL, eyeR);
+  head.position.set(0, 2.45, 0);
+  robot.add(head);
+
+  const neck = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.2, 0.28, 24), jointMat);
+  neck.position.set(0, 1.98, 0);
+  robot.add(neck);
+
+  /* --- torso --- */
+  const chest = new THREE.Mesh(new THREE.CylinderGeometry(0.72, 0.5, 1.5, 40), bodyMat);
+  chest.position.set(0, 1.15, 0);
+  robot.add(chest);
+  const chestCap = new THREE.Mesh(new THREE.SphereGeometry(0.72, 40, 24, 0, Math.PI * 2, 0, Math.PI / 2), bodyMat);
+  chestCap.position.set(0, 1.9, 0);
+  chestCap.scale.y = 0.4;
+  robot.add(chestCap);
+  const collar = new THREE.Mesh(new THREE.TorusGeometry(0.3, 0.05, 16, 40), brassMat);
+  collar.rotation.x = Math.PI / 2;
+  collar.position.set(0, 1.95, 0);
+  robot.add(collar);
+  const core = new THREE.Mesh(new THREE.SphereGeometry(0.07, 16, 16), brassMat);
+  core.position.set(0, 1.45, 0.66);
+  robot.add(core);
+
+  /* --- hips + legs (crop below frame like the reference) --- */
+  const waist = new THREE.Mesh(new THREE.CylinderGeometry(0.42, 0.5, 0.45, 32), jointMat);
+  waist.position.set(0, 0.25, 0);
+  robot.add(waist);
+  [-0.28, 0.28].forEach(x => {
+    const thigh = new THREE.Mesh(new THREE.CylinderGeometry(0.19, 0.16, 1.3, 24), bodyMat);
+    thigh.position.set(x, -0.6, 0);
+    robot.add(thigh);
+  });
+
+  /* --- arms (raised pose, pivoted at shoulders for sway) --- */
+  function buildArm(side){ // side: -1 left, +1 right
+    const arm = new THREE.Group();
+    arm.position.set(side * 0.82, 1.8, 0); // shoulder pivot
+
+    const shoulder = new THREE.Mesh(new THREE.SphereGeometry(0.24, 28, 28), bodyMat);
+    arm.add(shoulder);
+
+    const upper = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.13, 0.85, 24), bodyMat);
+    upper.position.set(side * 0.32, -0.28, 0);
+    upper.rotation.z = side * 0.85;
+    arm.add(upper);
+
+    const elbow = new THREE.Mesh(new THREE.SphereGeometry(0.16, 24, 24), jointMat);
+    elbow.position.set(side * 0.62, -0.55, 0);
+    arm.add(elbow);
+
+    const fore = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.14, 0.8, 24), bodyMat);
+    fore.position.set(side * 0.82, -0.18, 0.1);
+    fore.rotation.z = side * -0.35;
+    fore.rotation.x = -0.18;
+    arm.add(fore);
+
+    const hand = new THREE.Mesh(new THREE.SphereGeometry(0.2, 24, 24), chromeMat);
+    hand.scale.set(1, 0.85, 1.15);
+    hand.position.set(side * 0.95, 0.22, 0.18);
+    arm.add(hand);
+    return arm;
+  }
+  const armL = buildArm(-1), armR = buildArm(1);
+  robot.add(armL, armR);
+
+  /* --- floor grid --- */
+  const grid = new THREE.GridHelper(30, 34, 0x26262c, 0x131316);
+  grid.position.y = -1.25;
+  scene.add(grid);
+
+  sizeRobot();
+  addEventListener('resize', sizeRobot);
+
+  /* --- mouse tracking --- */
+  let nmx = 0, nmy = 0; // normalized -1..1
+  addEventListener('mousemove', e => {
+    nmx = (e.clientX / innerWidth) * 2 - 1;
+    nmy = (e.clientY / innerHeight) * 2 - 1;
+  });
+
+  const baseY = robot.position.y;
+  let t = 0;
+  function animate(){
+    requestAnimationFrame(animate);
+    t += 0.016;
+
+    if (!reduceMotion){
+      // whole body turns toward the cursor
+      robot.rotation.y += ((nmx * 0.5) - robot.rotation.y) * 0.06;
+      robot.rotation.x += ((nmy * 0.12) - robot.rotation.x) * 0.06;
+      // head leads, tracking harder than the body
+      head.rotation.y += ((nmx * 0.55) - head.rotation.y) * 0.1;
+      head.rotation.x += ((nmy * 0.35) - head.rotation.x) * 0.1;
+      // idle float + breathing sway
+      robot.position.y = baseY + Math.sin(t * 1.4) * 0.06;
+      armL.rotation.z =  Math.sin(t * 1.1) * 0.05;
+      armR.rotation.z = -Math.sin(t * 1.1 + 0.6) * 0.05;
+      // brass light drifts with the cursor for living reflections
+      brassLight.position.x = -3 + nmx * 1.5;
+      brassLight.position.y = 2.2 - nmy * 1.2;
+    }
+    renderer.render(scene, camera);
+  }
+  animate();
+})();
+
+/* ---------- scroll reveals ---------- */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => { if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+}, {threshold: 0.12});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* ---------- active nav link on scroll ---------- */
+const sections = [...document.querySelectorAll('section, header.hero')];
+const navA = [...document.querySelectorAll('.nav-links a')];
+addEventListener('scroll', () => {
+  const y = scrollY + innerHeight/3;
+  let current = '';
+  sections.forEach(s => { if (s.offsetTop <= y) current = '#' + s.id; });
+  navA.forEach(a => a.classList.toggle('active', a.getAttribute('href') === current));
+}, {passive:true});
+
+/* ---------- 3D tilt on project cards ---------- */
+if (!reduceMotion) document.querySelectorAll('.tilt').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const rx = ((e.clientY - r.top)/r.height - .5) * -8;
+    const ry = ((e.clientX - r.left)/r.width - .5) * 8;
+    card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`;
+  });
+  card.addEventListener('mouseleave', () => card.style.transform = '');
+});
+
+/* ---------- copy email + toast ---------- */
+const toast = document.getElementById('toast');
+function showToast(msg){
+  toast.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(showToast.t);
+  showToast.t = setTimeout(() => toast.classList.remove('show'), 2400);
+}
+document.getElementById('copyEmail').addEventListener('click', e => {
+  e.preventDefault();
+  navigator.clipboard.writeText('cyanramkissoon@gmail.com')
+    .then(() => showToast('Email copied to clipboard ✓'))
+    .catch(() => location.href = 'mailto:cyanramkissoon@gmail.com');
+});
+
+/* ---------- contact form → mailto ---------- */
+document.getElementById('sendBtn').addEventListener('click', () => {
+  const name = document.getElementById('fName').value.trim();
+  const email = document.getElementById('fEmail').value.trim();
+  const subject = document.getElementById('fSubject').value.trim() || 'Portfolio enquiry';
+  const msg = document.getElementById('fMsg').value.trim();
+  if (!name || !email || !msg){ showToast('Please fill in name, email and message'); return; }
+  const body = encodeURIComponent(`${msg}\n\n— ${name} (${email})`);
+  location.href = `mailto:cyanramkissoon@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+  showToast('Opening your email client…');
+});
+
+/* ================================================= */
+/* ============ CHESS — engine from scratch ========= */
+/* ================================================= */
+const PVAL = {p:100, n:300, b:320, r:500, q:900, k:20000};
+const UNI = {P:'♙',N:'♘',B:'♗',R:'♖',Q:'♕',K:'♔',p:'♟',n:'♞',b:'♝',r:'♜',q:'♛',k:'♚'};
+const RC = i => [Math.floor(i/8), i%8];
+const IX = (r,c) => r*8 + c;
+const onB = (r,c) => r>=0 && r<8 && c>=0 && c<8;
+const isWp = p => p === p.toUpperCase();
+const sqName = i => { const [r,c] = RC(i); return 'abcdefgh'[c] + (8-r); };
+const KJ = [[1,2],[2,1],[2,-1],[1,-2],[-1,-2],[-2,-1],[-2,1],[-1,2]];
+let C = null;
+
+function chInit(){
+  const b = [];
+  'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR'.split('/').forEach(row => {
+    for (const ch of row){ if (/\d/.test(ch)) for (let i=0;i<+ch;i++) b.push(null); else b.push(ch); }
+  });
+  C = { b, castle:{K:true,Q:true,k:true,q:true}, ep:-1,
+        sel:-1, moves:[], last:[-1,-1], over:'', thinking:false };
+  document.getElementById('chLog').innerHTML = '';
+  setStatus('Your move — you\'re white ♔');
+  chRender();
+}
+
+function attacked(b, i, byWhite){
+  const [r,c] = RC(i);
+  const pd = byWhite ? 1 : -1;
+  for (const dc of [-1,1]){ const rr=r+pd, cc=c+dc;
+    if (onB(rr,cc)){ const p=b[IX(rr,cc)]; if (p && isWp(p)===byWhite && p.toLowerCase()==='p') return true; } }
+  for (const [dr,dc] of KJ){ const rr=r+dr, cc=c+dc;
+    if (onB(rr,cc)){ const p=b[IX(rr,cc)]; if (p && isWp(p)===byWhite && p.toLowerCase()==='n') return true; } }
+  for (let dr=-1; dr<=1; dr++) for (let dc=-1; dc<=1; dc++){
+    if (!dr && !dc) continue; const rr=r+dr, cc=c+dc;
+    if (onB(rr,cc)){ const p=b[IX(rr,cc)]; if (p && isWp(p)===byWhite && p.toLowerCase()==='k') return true; } }
+  const groups = [[[[0,1],[0,-1],[1,0],[-1,0]], 'rq'], [[[1,1],[1,-1],[-1,1],[-1,-1]], 'bq']];
+  for (const [dirs, types] of groups) for (const [dr,dc] of dirs){
+    let rr=r+dr, cc=c+dc;
+    while (onB(rr,cc)){ const p=b[IX(rr,cc)];
+      if (p){ if (isWp(p)===byWhite && types.includes(p.toLowerCase())) return true; break; }
+      rr+=dr; cc+=dc; } }
+  return false;
+}
+
+function pseudo(st, w){
+  const b = st.b, out = [];
+  for (let i=0; i<64; i++){
+    const p = b[i]; if (!p || isWp(p)!==w) continue;
+    const [r,c] = RC(i), t = p.toLowerCase();
+    const push = (rr,cc) => { if (!onB(rr,cc)) return false;
+      const q = b[IX(rr,cc)];
+      if (q && isWp(q)===w) return false;
+      out.push({f:i, t:IX(rr,cc)}); return !q; };
+    if (t==='p'){
+      const dir = w?-1:1, startR = w?6:1, promoR = w?0:7;
+      if (onB(r+dir,c) && !b[IX(r+dir,c)]){
+        out.push({f:i, t:IX(r+dir,c), promo:(r+dir)===promoR});
+        if (r===startR && !b[IX(r+2*dir,c)]) out.push({f:i, t:IX(r+2*dir,c), dbl:true});
+      }
+      for (const dc of [-1,1]){ const rr=r+dir, cc=c+dc; if (!onB(rr,cc)) continue;
+        const q = b[IX(rr,cc)];
+        if (q && isWp(q)!==w) out.push({f:i, t:IX(rr,cc), promo:rr===promoR});
+        else if (IX(rr,cc)===st.ep) out.push({f:i, t:IX(rr,cc), ep:true}); }
+    } else if (t==='n'){ for (const [dr,dc] of KJ) push(r+dr, c+dc); }
+    else if (t==='k'){
+      for (let dr=-1;dr<=1;dr++) for (let dc=-1;dc<=1;dc++){ if (dr||dc) push(r+dr,c+dc); }
+      const home = w?7:0;
+      if (r===home && c===4 && !attacked(b, i, !w)){
+        if (st.castle[w?'K':'k'] && !b[IX(home,5)] && !b[IX(home,6)]
+            && !attacked(b,IX(home,5),!w) && !attacked(b,IX(home,6),!w))
+          out.push({f:i, t:IX(home,6), castle:'K'});
+        if (st.castle[w?'Q':'q'] && !b[IX(home,3)] && !b[IX(home,2)] && !b[IX(home,1)]
+            && !attacked(b,IX(home,3),!w) && !attacked(b,IX(home,2),!w))
+          out.push({f:i, t:IX(home,2), castle:'Q'});
+      }
+    } else {
+      const dirs = t==='r' ? [[0,1],[0,-1],[1,0],[-1,0]]
+                 : t==='b' ? [[1,1],[1,-1],[-1,1],[-1,-1]]
+                 : [[0,1],[0,-1],[1,0],[-1,0],[1,1],[1,-1],[-1,1],[-1,-1]];
+      for (const [dr,dc] of dirs){ let rr=r+dr, cc=c+dc; while (push(rr,cc)){ rr+=dr; cc+=dc; } }
+    }
+  }
+  return out;
+}
+
+function applyM(st, m){
+  const b = st.b.slice(), p = b[m.f], w = isWp(p);
+  const castle = {...st.castle};
+  let ep = -1;
+  b[m.t] = p; b[m.f] = null;
+  if (m.ep){ const [tr,tc] = RC(m.t); b[IX(w?tr+1:tr-1, tc)] = null; }
+  if (m.dbl){ const [fr,fc] = RC(m.f); ep = IX(w?fr-1:fr+1, fc); }
+  if (m.promo) b[m.t] = w ? 'Q' : 'q';
+  if (m.castle){ const home = w?7:0;
+    if (m.castle==='K'){ b[IX(home,5)] = b[IX(home,7)]; b[IX(home,7)] = null; }
+    else { b[IX(home,3)] = b[IX(home,0)]; b[IX(home,0)] = null; } }
+  if (p.toLowerCase()==='k'){ if (w){ castle.K = castle.Q = false; } else { castle.k = castle.q = false; } }
+  for (const sq of [m.f, m.t]){
+    if (sq===63) castle.K = false; if (sq===56) castle.Q = false;
+    if (sq===7)  castle.k = false; if (sq===0)  castle.q = false;
+  }
+  return {b, castle, ep};
+}
+
+function legalMoves(st, w){
+  return pseudo(st, w).filter(m => {
+    const ns = applyM(st, m);
+    const ki = ns.b.indexOf(w ? 'K' : 'k');
+    return !attacked(ns.b, ki, !w);
+  });
+}
+
+function evalB(b){
+  let s = 0;
+  for (let i=0; i<64; i++){ const p = b[i]; if (!p) continue;
+    const [r,c] = RC(i);
+    const center = (3.5 - Math.abs(3.5-r)) + (3.5 - Math.abs(3.5-c));
+    s += (isWp(p) ? 1 : -1) * (PVAL[p.toLowerCase()] + center*3);
+  }
+  return s;
+}
+
+function search(st, depth, alpha, beta, w){
+  if (depth===0) return evalB(st.b);
+  const ms = legalMoves(st, w);
+  if (!ms.length){
+    const ki = st.b.indexOf(w ? 'K' : 'k');
+    return attacked(st.b, ki, !w) ? (w ? -99999-depth : 99999+depth) : 0;
+  }
+  ms.sort((a,b2) => (st.b[b2.t]?1:0) - (st.b[a.t]?1:0));
+  if (w){ let best = -Infinity;
+    for (const m of ms){ best = Math.max(best, search(applyM(st,m), depth-1, alpha, beta, false));
+      alpha = Math.max(alpha, best); if (beta <= alpha) break; }
+    return best;
+  } else { let best = Infinity;
+    for (const m of ms){ best = Math.min(best, search(applyM(st,m), depth-1, alpha, beta, true));
+      beta = Math.min(beta, best); if (beta <= alpha) break; }
+    return best;
+  }
+}
+
+function aiPick(){
+  const ms = legalMoves(C, false);
+  if (!ms.length) return null;
+  const lvl = document.getElementById('chDiff').value;
+  const depth = lvl==='coach' ? 3 : lvl==='club' ? 2 : 1;
+  ms.sort(() => Math.random() - .5);
+  let best = null, bestV = Infinity;
+  for (const m of ms){
+    let v = search(applyM(C, m), depth-1, -Infinity, Infinity, true);
+    if (lvl==='casual') v += (Math.random()-.5) * 150;
+    if (v < bestV){ bestV = v; best = m; }
+  }
+  return best;
+}
+
+function setStatus(txt, think){
+  const el = document.getElementById('chStatus');
+  el.textContent = txt;
+  el.classList.toggle('think', !!think);
+}
+
+function logMove(piece, m, cap){
+  const row = document.createElement('div');
+  row.textContent = (isWp(piece) ? '' : '· ') + UNI[piece] + ' ' + sqName(m.f) + (cap ? ' × ' : ' – ') + sqName(m.t)
+    + (m.castle ? '  ⌐castled' : '') + (m.promo ? ' =♕' : '') + (m.ep ? '  e.p.' : '');
+  const log = document.getElementById('chLog');
+  log.appendChild(row);
+  log.scrollTop = log.scrollHeight;
+}
+
+function playMove(m){
+  const piece = C.b[m.f], cap = !!C.b[m.t] || m.ep;
+  const ns = applyM(C, m);
+  C.b = ns.b; C.castle = ns.castle; C.ep = ns.ep;
+  C.last = [m.f, m.t]; C.sel = -1; C.moves = [];
+  logMove(piece, m, cap);
+}
+
+function verdict(w){ // side to move; returns end text or null
+  if (legalMoves(C, w).length) return null;
+  const ki = C.b.indexOf(w ? 'K' : 'k');
+  if (attacked(C.b, ki, !w))
+    return w ? 'Checkmate — the coach wins ♞ Rematch?' : 'Checkmate — you beat the coach! ♔👑';
+  return 'Stalemate — a draw. Well held.';
+}
+
+function inCheck(w){
+  const ki = C.b.indexOf(w ? 'K' : 'k');
+  return attacked(C.b, ki, !w);
+}
+
+function chClick(i){
+  if (C.over || C.thinking) return;
+  if (C.sel >= 0){
+    const m = C.moves.find(m => m.f===C.sel && m.t===i);
+    if (m){
+      playMove(m);
+      const end = verdict(false);
+      if (end){ C.over = end; setStatus(end); chRender(); return; }
+      C.thinking = true;
+      setStatus('Coach is thinking…', true);
+      chRender();
+      setTimeout(() => {
+        const am = aiPick();
+        if (am) playMove(am);
+        C.thinking = false;
+        const end2 = verdict(true);
+        if (end2){ C.over = end2; setStatus(end2); }
+        else setStatus(inCheck(true) ? 'Check! Your move ♔' : 'Your move ♔');
+        chRender();
+      }, 350 + Math.random()*450);
+      return;
+    }
+  }
+  const p = C.b[i];
+  if (p && isWp(p)){ C.sel = i; C.moves = legalMoves(C, true).filter(m => m.f===i); }
+  else C.sel = -1;
+  chRender();
+}
+
+function chRender(){
+  const el = document.getElementById('chessBoard');
+  el.innerHTML = '';
+  const targets = C.sel>=0 ? C.moves.map(m => m.t) : [];
+  for (let i=0; i<64; i++){
+    const [r,c] = RC(i);
+    const sq = document.createElement('div');
+    sq.className = 'sq ' + (((r+c)%2) ? 'dk' : 'lt');
+    if (i===C.sel) sq.classList.add('sel');
+    if (C.last.includes(i)) sq.classList.add('last');
+    if (targets.includes(i)) sq.classList.add(C.b[i] ? 'cap' : 'dotm');
+    const p = C.b[i];
+    if (p){ sq.textContent = UNI[p]; sq.classList.add(isWp(p) ? 'wp' : 'bp'); }
+    sq.addEventListener('click', () => chClick(i));
+    el.appendChild(sq);
+  }
+}
+document.getElementById('chNew').addEventListener('click', chInit);
+document.getElementById('chDiff').addEventListener('change', chInit);
+chInit();
+
+/* ================================================= */
+/* ================== CIANBOT ====================== */
+/* ================================================= */
+const botFab = document.getElementById('botFab');
+const botPanel = document.getElementById('botPanel');
+const botMsgs = document.getElementById('botMsgs');
+const botIn = document.getElementById('botIn');
+let botGreeted = false;
+
+const BOT_KB = [
+  { k:['hello','hi ','hey','yo ','sup','morning','afternoon'],
+    a:"Hey! 👋 I'm CianBot — Cian's on-site assistant. Ask me about his <b>skills</b>, <b>projects</b>, <b>experience</b>, or how to <b>hire</b> him." },
+  { k:['skill','stack','tech','language','framework','know'],
+    a:"Cian works mainly with <b>Python, JavaScript, C# and SQL</b> — React and Node.js on the web, Unity 6 for games, and reinforcement learning / Monte Carlo methods on the AI side. Full breakdown in the <a href='#skills'>Skills section</a>." },
+  { k:['project','portfolio','built','work','riftborn','game','voice','blackjack'],
+    a:"Highlights: <b>Riftborn</b> (a monster-collecting mobile RPG in Unity 6), an <b>AI Voice Assistant</b> (his final-year project), a <b>Blackjack RL agent</b> in Python — and this very site, chess engine included. See <a href='#projects'>Projects</a>." },
+  { k:['chess','play','coach','board','beat'],
+    a:"Cian coaches chess at primary schools with Kings & Queens Chess Club. And yes — you can play his bot right now in the <a href='#play'>Play section</a>. Try Coach Mode if you're feeling brave ♞" },
+  { k:['hire','job','freelance','available','opportun','recruit','role','position'],
+    a:"Good news — he's <b>open to opportunities</b>: freelance and full-time, UK-based or remote. Software development, web, games, or AI-adjacent roles all fit. Drop him a line via the <a href='#contact'>contact form</a>." },
+  { k:['experience','history','background','university','degree','study','education','hertfordshire'],
+    a:"Cian holds a <b>BSc in Computer Science with AI</b> from the University of Hertfordshire, and has worked as a Student Guide there plus as a chess coach. The full timeline is in <a href='#experience'>Experience</a>." },
+  { k:['contact','email','reach','message','touch'],
+    a:"Easiest way: <b>cyanramkissoon@gmail.com</b> — or use the <a href='#contact'>contact form</a>, which opens a pre-filled email. His GitHub is <a href='https://github.com/Sakaki24o' target='_blank'>Sakaki24o</a>." },
+  { k:['cv','resume','curriculum'],
+    a:"Cian's CV is available on request — the quickest route is emailing <b>cyanramkissoon@gmail.com</b> with a line about the role, and he'll send it over." },
+  { k:['where','location','based','johannesburg','south africa','uk','remote'],
+    a:"He's based in <b>Johannesburg, South Africa</b>, and open to UK and remote opportunities — he studied and worked in the UK until recently." },
+  { k:['who','about','cian','yourself'],
+    a:"Cian Ramkissoon: software developer, CS-with-AI graduate, chess coach, badminton player, and motorcyclist. Builder of games, web apps, and intelligent systems. More in <a href='#about'>About</a>." },
+  { k:['robot','3d','site','website','how','made'],
+    a:"This site is hand-built — the 3D robot is <b>Three.js</b>, the chess engine is <b>vanilla JavaScript from scratch</b> (minimax with alpha-beta pruning), and I'm a lightweight rule-based bot living in the same file. No frameworks, no fluff." },
+  { k:['thank','thanks','cheers','cool','nice'],
+    a:"Anytime! If there's anything else, I'm one click away — or just email Cian directly. ♞" },
+];
+const BOT_FALLBACK = "Hmm, that one's beyond my little rule-book 🤖 — but Cian himself would love to answer. Reach him at <b>cyanramkissoon@gmail.com</b> or via the <a href='#contact'>contact form</a>. You can also try asking about his <b>skills</b>, <b>projects</b>, or <b>chess</b>.";
+
+function botReply(text){
+  const q = text.toLowerCase();
+  const hit = BOT_KB.find(e => e.k.some(k => q.includes(k)));
+  return hit ? hit.a : BOT_FALLBACK;
+}
+
+function addMsg(html, who){
+  const m = document.createElement('div');
+  m.className = 'bmsg ' + who;
+  if (who === 'user') m.textContent = html;
+  else m.innerHTML = html;
+  botMsgs.appendChild(m);
+  botMsgs.scrollTop = botMsgs.scrollHeight;
+  return m;
+}
+
+function botAsk(text){
+  if (!text.trim()) return;
+  addMsg(text, 'user');
+  botIn.value = '';
+  const typing = document.createElement('div');
+  typing.className = 'bmsg bot typing';
+  typing.innerHTML = '<i></i><i></i><i></i>';
+  botMsgs.appendChild(typing);
+  botMsgs.scrollTop = botMsgs.scrollHeight;
+  setTimeout(() => {
+    typing.remove();
+    addMsg(botReply(text), 'bot');
+  }, 550 + Math.random()*550);
+}
+
+botFab.addEventListener('click', () => {
+  botPanel.classList.toggle('open');
+  if (botPanel.classList.contains('open')){
+    botIn.focus();
+    if (!botGreeted){
+      botGreeted = true;
+      setTimeout(() => addMsg("Hey, I'm <b>CianBot</b> ♞ — ask me anything about Cian: his skills, projects, chess coaching, or how to hire him.", 'bot'), 300);
+    }
+  }
+});
+document.getElementById('botClose').addEventListener('click', () => botPanel.classList.remove('open'));
+document.getElementById('botSend').addEventListener('click', () => botAsk(botIn.value));
+botIn.addEventListener('keydown', e => { if (e.key === 'Enter') botAsk(botIn.value); });
+
+['Skills','Projects','Play chess','Hire Cian','Contact'].forEach(label => {
+  const b = document.createElement('button');
+  b.className = 'hoverable';
+  b.textContent = label;
+  b.addEventListener('click', () => botAsk(label));
+  document.getElementById('botChips').appendChild(b);
+});
+
+/* ---------- scroll progress bar ---------- */
+const progress = document.getElementById('progress');
+addEventListener('scroll', () => {
+  const max = document.documentElement.scrollHeight - innerHeight;
+  progress.style.width = (max > 0 ? (scrollY / max) * 100 : 0) + '%';
+}, {passive:true});
 </script>
 </body>
 </html>
