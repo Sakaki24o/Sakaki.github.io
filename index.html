@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Cian Ramkissoon — Software Developer</title>
+<meta name="theme-color" content="#050506" />
+<title>Cian Ramkissoon - Software Developer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -11,9 +12,9 @@
   --bg:#050506;
   --surface:#0c0c0e;
   --surface-2:#121215;
-  --line:rgba(255,255,255,.08);
+  --line:rgba(255,255,255,.09);
   --ink:#f4f3ef;
-  --muted:#8d8d94;
+  --muted:#9a9aa2;
   --brass:#c9a75f;
   --brass-soft:rgba(201,167,95,.14);
   --live:#41d98d;
@@ -23,10 +24,11 @@
   --font-mono:'Space Mono',monospace;
 }
 *{margin:0;padding:0;box-sizing:border-box}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px;border-radius:4px}
 html{scroll-behavior:smooth}
 body{
   background:var(--bg);color:var(--ink);
-  font-family:var(--font-body);font-weight:300;
+  font-family:var(--font-body);font-weight:400;
   line-height:1.6;overflow-x:hidden;
 }
 ::selection{background:var(--brass);color:#000}
@@ -45,7 +47,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 @media(max-width:860px){.nav-links{display:none}}
 
 /* ---------- hero ---------- */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:120px 42px 80px;overflow:hidden}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:120px 42px 80px;overflow:hidden;background:radial-gradient(900px 600px at 78% 40%,rgba(201,167,95,.07),transparent 65%)}
 #robot3d{position:absolute;inset:0;z-index:1;pointer-events:none}
 #robot3d canvas{display:block}
 @media(max-width:860px){#robot3d{opacity:.35}}
@@ -54,8 +56,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .status .dot{width:7px;height:7px;border-radius:50%;background:var(--live);box-shadow:0 0 10px var(--live);animation:pulse 2.2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 .hero-eyebrow{font-family:var(--font-mono);font-size:13px;color:var(--muted);letter-spacing:.1em;margin-bottom:6px}
-h1.name{font-family:var(--font-display);font-weight:800;font-size:clamp(58px,10.5vw,138px);line-height:.98;letter-spacing:-.02em;margin-bottom:26px}
-h1.name .line{display:block;overflow:hidden}
+h1.name{font-family:var(--font-display);font-weight:800;font-size:clamp(40px,8.6vw,124px);line-height:1;letter-spacing:-.02em;margin-bottom:26px}
+h1.name .line{display:block;overflow:hidden;white-space:nowrap}
 h1.name .ch{display:inline-block;transform:translateY(115%);animation:rise .9s cubic-bezier(.22,1,.36,1) forwards}
 @keyframes rise{to{transform:translateY(0)}}
 h1 .thin{color:transparent;-webkit-text-stroke:1.5px rgba(244,243,239,.85)}
@@ -76,6 +78,7 @@ h1 .thin{color:transparent;-webkit-text-stroke:1.5px rgba(244,243,239,.85)}
 .scroll-hint{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);font-family:var(--font-mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:10px;z-index:2}
 .scroll-hint::after{content:'';width:1px;height:44px;background:linear-gradient(var(--muted),transparent);animation:drip 1.8s infinite}
 @keyframes drip{0%{transform:scaleY(0);transform-origin:top}55%{transform:scaleY(1);transform-origin:top}56%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media(max-height:860px){.scroll-hint{display:none}}
 
 /* ---------- sections ---------- */
 section{padding:120px 42px;position:relative}
@@ -176,15 +179,15 @@ h2 .accent{color:transparent;-webkit-text-stroke:1.2px var(--brass)}
 .board-frame{border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:var(--surface)}
 #chessBoard{display:grid;grid-template-columns:repeat(8,1fr);aspect-ratio:1/1;border-radius:8px;overflow:hidden;user-select:none}
 .sq{display:flex;align-items:center;justify-content:center;font-size:clamp(24px,4.6vw,42px);line-height:1;position:relative;transition:background .15s;cursor:pointer}
-.sq.lt{background:#1f1f26}
-.sq.dk{background:#111116}
-.sq.wp{color:#f2f0e8;text-shadow:0 2px 6px rgba(0,0,0,.6)}
-.sq.bp{color:#5f5f6a;text-shadow:0 1px 0 rgba(255,255,255,.15)}
-.sq.last{background:rgba(201,167,95,.13)}
+.sq.lt{background:#f0d9b5}
+.sq.dk{background:#b58863}
+.sq.wp{color:#fffdf5;text-shadow:0 1px 3px rgba(60,40,10,.55)}
+.sq.bp{color:#3a352c;text-shadow:0 1px 0 rgba(255,255,255,.3)}
+.sq.last{background:rgba(201,167,95,.35)}
 .sq.sel{box-shadow:inset 0 0 0 2px var(--brass)}
-.sq.dotm::after{content:'';width:22%;height:22%;border-radius:50%;background:rgba(201,167,95,.55);position:absolute}
-.sq.cap{box-shadow:inset 0 0 0 2px rgba(201,167,95,.7)}
-.sq:hover{filter:brightness(1.25)}
+.sq.dotm::after{content:'';width:22%;height:22%;border-radius:50%;background:rgba(90,66,20,.5);position:absolute}
+.sq.cap{box-shadow:inset 0 0 0 2px rgba(160,120,40,.9)}
+.sq:hover{filter:brightness(1.06)}
 .chess-side{display:flex;flex-direction:column;gap:18px}
 .ch-status{font-family:var(--font-mono);font-size:13px;letter-spacing:.08em;color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:16px 20px;background:var(--surface)}
 .ch-status.think{color:var(--brass)}
@@ -315,8 +318,8 @@ footer .flinks a:hover{color:var(--brass)}
       <span class="line" data-text="Cian"></span>
       <span class="line thin" data-text="Ramkissoon"></span>
     </h1>
-    <span class="role-chip">✦ Software Developer · CS with AI</span>
-    <p class="hero-sub">I build <strong>clean, interactive software</strong> — from web apps and games to AI-driven systems — with a strong focus on user experience and thoughtful engineering.</p>
+    <span class="role-chip">✦ Software Developer · CS with AI, 2:1</span>
+    <p class="hero-sub">I build <strong>clean, interactive software</strong> - from web apps and games to AI-driven systems - with a strong focus on user experience and thoughtful engineering.</p>
     <div class="hero-actions">
       <a href="#projects" class="btn btn-primary magnetic hoverable">View My Work <span class="arr">→</span></a>
       <a href="#contact" class="btn btn-ghost magnetic hoverable">Get In Touch</a>
@@ -337,18 +340,18 @@ footer .flinks a:hover{color:var(--brass)}
   <div class="wrap">
     <span class="eyebrow reveal">Who I Am</span>
     <h2 class="reveal">About <span class="accent">Me</span></h2>
-    <p class="section-sub reveal">Developer, chess coach, and lifelong learner — building experiences people enjoy using.</p>
+    <p class="section-sub reveal">Developer, chess coach, and lifelong learner - building experiences people enjoy using.</p>
 
     <div class="about-grid">
       <div class="about-copy reveal">
-        <p>Hey, I'm <strong>Cian Ramkissoon</strong> — a software developer with a BSc in <strong>Computer Science with Artificial Intelligence</strong> from the University of Hertfordshire. I'm currently based in Johannesburg, South Africa, and open to opportunities in the UK and remotely.</p>
-        <p>I specialise in building interactive experiences — whether that's a <strong>React</strong> web platform, a mobile game in <strong>Unity</strong>, or a reinforcement-learning agent in <strong>Python</strong>. Clean code and thoughtful design go hand in hand for me — every detail matters.</p>
+        <p>Hey, I'm <strong>Cian Ramkissoon</strong> - a software developer with a BSc (Hons) in <strong>Computer Science with Artificial Intelligence</strong> from the University of Hertfordshire, graduated with <strong>Upper Second Class Honours (2:1)</strong> in July 2026. I'm currently based in Johannesburg, South Africa, and open to opportunities in the UK and remotely.</p>
+        <p>I specialise in building interactive experiences - whether that's a <strong>React</strong> web platform, a mobile game in <strong>Unity</strong>, or a reinforcement-learning agent in <strong>Python</strong>. Clean code and thoughtful design go hand in hand for me - every detail matters.</p>
         <p>Away from the keyboard I coach chess, compete in badminton, and ride motorcycles.</p>
         <p><em>Always learning, always building.</em></p>
       </div>
       <div class="fact-card reveal">
         <div class="fact"><span class="k">Role</span><span class="v">Software Developer</span></div>
-        <div class="fact"><span class="k">Education</span><span class="v">BSc Computer Science with AI</span></div>
+        <div class="fact"><span class="k">Education</span><span class="v">BSc Computer Science with AI - 2:1</span></div>
         <div class="fact"><span class="k">University</span><span class="v">University of Hertfordshire</span></div>
         <div class="fact"><span class="k">Location</span><span class="v">Johannesburg, South Africa</span></div>
         <div class="fact"><span class="k">Status</span><span class="v live">Open to opportunities</span></div>
@@ -357,8 +360,8 @@ footer .flinks a:hover{color:var(--brass)}
 
     <div class="traits">
       <div class="trait reveal"><span class="icon">⌘</span><h3>Clean Code</h3><p>Readable, maintainable code with a focus on structure and best practices.</p></div>
-      <div class="trait reveal"><span class="icon">◈</span><h3>Eye for Design</h3><p>Every pixel and interaction matters — spacing, motion, and consistency.</p></div>
-      <div class="trait reveal"><span class="icon">♞</span><h3>Strategic Thinker</h3><p>Chess coach's mindset — plan ahead, spot patterns, and stay calm under pressure.</p></div>
+      <div class="trait reveal"><span class="icon">◈</span><h3>Eye for Design</h3><p>Every pixel and interaction matters - spacing, motion, and consistency.</p></div>
+      <div class="trait reveal"><span class="icon">♞</span><h3>Strategic Thinker</h3><p>Chess coach's mindset - plan ahead, spot patterns, and stay calm under pressure.</p></div>
       <div class="trait reveal"><span class="icon">✦</span><h3>Fast Learner</h3><p>Quick to adapt to new tools and frameworks, turning challenges into growth.</p></div>
     </div>
   </div>
@@ -434,28 +437,28 @@ footer .flinks a:hover{color:var(--brass)}
 
     <div class="timeline">
       <div class="t-item reveal">
-        <div class="t-when">2023 — 2026</div>
-        <h3>BSc Computer Science with Artificial Intelligence</h3>
+        <div class="t-when">2023 - 2026</div>
+        <h3>BSc (Hons) Computer Science with Artificial Intelligence - 2:1</h3>
         <div class="t-org">University of Hertfordshire · Hatfield, UK</div>
-        <p>Specialised in intelligent adaptive systems — reinforcement learning, Monte Carlo methods, Kalman filtering — alongside core software engineering.</p>
+        <p>Graduated with Upper Second Class Honours (2:1), awarded 17 July 2026. Specialised in intelligent adaptive systems - reinforcement learning, Monte Carlo methods, Kalman filtering - alongside core software engineering.</p>
       </div>
       <div class="t-item reveal">
-        <div class="t-when">2024 — 2026</div>
+        <div class="t-when">2024 - 2026</div>
         <h3>Chess Coach</h3>
         <div class="t-org">Kings &amp; Queens Chess Club</div>
-        <p>Coached juniors from beginner to competitive level. Enhanced DBS-certified with safeguarding training — clear communication and patience are the job.</p>
+        <p>Coached juniors from beginner to competitive level. Enhanced DBS-certified with safeguarding training - clear communication and patience are the job.</p>
       </div>
       <div class="t-item reveal">
-        <div class="t-when">2024 — 2026</div>
+        <div class="t-when">2024 - 2026</div>
         <h3>Student Guide</h3>
         <div class="t-org">University of Hertfordshire</div>
-        <p>Front-line ambassador for open days and campus events — public speaking, tours, and helping prospective students find their footing.</p>
+        <p>Front-line ambassador for open days and campus events - public speaking, tours, and helping prospective students find their footing.</p>
       </div>
       <div class="t-item reveal">
         <div class="t-when">Earlier</div>
         <h3>Media, Teaching &amp; Coaching</h3>
         <div class="t-org">South Africa</div>
-        <p>Background in media creation, teaching, volleyball coaching, and sales — the communication foundation everything else is built on.</p>
+        <p>Background in media creation, teaching, volleyball coaching, and sales - the communication foundation everything else is built on.</p>
       </div>
     </div>
   </div>
@@ -473,7 +476,7 @@ footer .flinks a:hover{color:var(--brass)}
         <div class="proj-visual"><span class="num">01</span><span class="glyph">RIFT</span><span class="year">2026</span></div>
         <div class="proj-body">
           <h3>Riftborn</h3>
-          <p>A monster-collecting mobile RPG built in Unity 6 — 24-creature codex, 3-stage evolutions, full F2P economy with dual currencies and battle passes.</p>
+          <p>A monster-collecting mobile RPG built in Unity 6 - 24-creature codex, 3-stage evolutions, full F2P economy with dual currencies and battle passes.</p>
           <div class="proj-tags"><span>Unity 6</span><span>C#</span><span>AdMob</span><span>IAP</span></div>
           <div class="proj-links"><a class="plink solid hoverable" href="#contact">Details ↗</a><a class="plink line hoverable" href="https://github.com/Sakaki24o" target="_blank" rel="noopener">GitHub</a></div>
         </div>
@@ -482,7 +485,7 @@ footer .flinks a:hover{color:var(--brass)}
         <div class="proj-visual"><span class="num">02</span><span class="glyph">VOX</span><span class="year">2026</span></div>
         <div class="proj-body">
           <h3>AI Voice Assistant</h3>
-          <p>Final-year project — a voice assistant that listens, understands intent, and talks back. Speech recognition, NLP intent handling, and text-to-speech in Python.</p>
+          <p>Final-year project - a voice assistant that listens, understands intent, and talks back. Speech recognition, NLP intent handling, and text-to-speech in Python.</p>
           <div class="proj-tags"><span>Python</span><span>Speech</span><span>NLP</span><span>FYP</span></div>
           <div class="proj-links"><a class="plink solid hoverable" href="#contact">Details ↗</a><a class="plink line hoverable" href="https://github.com/Sakaki24o" target="_blank" rel="noopener">GitHub</a></div>
         </div>
@@ -491,7 +494,7 @@ footer .flinks a:hover{color:var(--brass)}
         <div class="proj-visual"><span class="num">03</span><span class="glyph">21♠</span><span class="year">2026</span></div>
         <div class="proj-body">
           <h3>Blackjack RL Agent</h3>
-          <p>Reinforcement-learning Blackjack agent in Python using Monte Carlo Exploring Starts and On-Policy First-Visit MC Control — theory made playable.</p>
+          <p>Reinforcement-learning Blackjack agent in Python using Monte Carlo Exploring Starts and On-Policy First-Visit MC Control - theory made playable.</p>
           <div class="proj-tags"><span>Python</span><span>RL</span><span>Monte Carlo</span></div>
           <div class="proj-links"><a class="plink solid hoverable" href="#contact">Details ↗</a><a class="plink line hoverable" href="https://github.com/Sakaki24o" target="_blank" rel="noopener">GitHub</a></div>
         </div>
@@ -500,7 +503,7 @@ footer .flinks a:hover{color:var(--brass)}
         <div class="proj-visual"><span class="num">04</span><span class="glyph">?!</span><span class="year">2026</span></div>
         <div class="proj-body">
           <h3>Adaptive Quiz App</h3>
-          <p>Interactive revision application generated from lecture material — turning a full university module into a self-testing study tool.</p>
+          <p>Interactive revision application generated from lecture material - turning a full university module into a self-testing study tool.</p>
           <div class="proj-tags"><span>JavaScript</span><span>UI/UX</span></div>
           <div class="proj-links"><a class="plink solid hoverable" href="#contact">Details ↗</a><a class="plink line hoverable" href="https://github.com/Sakaki24o" target="_blank" rel="noopener">GitHub</a></div>
         </div>
@@ -509,7 +512,7 @@ footer .flinks a:hover{color:var(--brass)}
         <div class="proj-visual"><span class="num">05</span><span class="glyph">&lt;/&gt;</span><span class="year">2026</span></div>
         <div class="proj-body">
           <h3>Portfolio Website</h3>
-          <p>This site — a fully interactive, hand-built portfolio with a 3D robot that tracks your cursor, magnetic buttons, and scroll-driven motion.</p>
+          <p>This site - a fully interactive, hand-built portfolio with a 3D robot that tracks your cursor, magnetic buttons, and scroll-driven motion.</p>
           <div class="proj-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
           <div class="proj-links"><a class="plink solid hoverable" href="#top">You're here ↺</a><a class="plink line hoverable" href="https://github.com/Sakaki24o" target="_blank" rel="noopener">GitHub</a></div>
         </div>
@@ -518,7 +521,7 @@ footer .flinks a:hover{color:var(--brass)}
         <div class="proj-visual"><span class="num">06</span><span class="glyph">♞→</span><span class="year">Next</span></div>
         <div class="proj-body">
           <h3>Your Project?</h3>
-          <p>I'm open to freelance work and full-time opportunities. Whether it's a quick question or a big idea — my inbox is always open.</p>
+          <p>I'm open to freelance work and full-time opportunities. Whether it's a quick question or a big idea - my inbox is always open.</p>
           <div class="proj-tags"><span>Collaboration</span><span>Open</span></div>
           <div class="proj-links"><a class="plink solid hoverable" href="#contact">Start a conversation ↗</a></div>
         </div>
@@ -532,12 +535,12 @@ footer .flinks a:hover{color:var(--brass)}
   <div class="wrap">
     <span class="eyebrow reveal">Challenge Me</span>
     <h2 class="reveal">Play the <span class="accent">Coach</span></h2>
-    <p class="section-sub reveal">I coach chess for a living — so naturally, my site plays chess. You're white. Good luck.</p>
+    <p class="section-sub reveal">I coach chess for a living - so naturally, my site plays chess. You're white. Good luck.</p>
 
     <div class="chess-layout">
       <div class="board-frame reveal"><div id="chessBoard"></div></div>
       <aside class="chess-side reveal">
-        <div class="ch-status" id="chStatus">Your move — you're white ♔</div>
+        <div class="ch-status" id="chStatus">Your move - you're white ♔</div>
         <div class="ch-controls">
           <select id="chDiff" class="hoverable">
             <option value="casual">♙ Casual</option>
@@ -547,7 +550,7 @@ footer .flinks a:hover{color:var(--brass)}
           <button id="chNew" class="hoverable">New Game</button>
         </div>
         <div class="ch-log" id="chLog"></div>
-        <p class="ch-note">This engine was <em>built from scratch in vanilla JavaScript</em> — move generation, check detection, castling, en passant, and a minimax search with alpha-beta pruning. No chess library involved.</p>
+        <p class="ch-note">This engine was <em>built from scratch in vanilla JavaScript</em> - move generation, check detection, castling, en passant, and a minimax search with alpha-beta pruning. No chess library involved.</p>
       </aside>
     </div>
   </div>
@@ -581,7 +584,7 @@ footer .flinks a:hover{color:var(--brass)}
       </div>
 
       <div class="form-card reveal">
-        <h3>— Send a Message</h3>
+        <h3>Send a Message</h3>
         <div class="f-row">
           <div class="f-group"><label>Full Name *</label><input type="text" id="fName" placeholder="Your name"></div>
           <div class="f-group"><label>Email Address *</label><input type="email" id="fEmail" placeholder="you@example.com"></div>
@@ -656,10 +659,10 @@ if (!reduceMotion) document.querySelectorAll('.magnetic').forEach(btn => {
   }
 
   /* --- lights: key, cool rim, brass fill --- */
-  scene.add(new THREE.AmbientLight(0x404048, 0.6));
+  scene.add(new THREE.AmbientLight(0x50505a, 0.7));
   const key = new THREE.DirectionalLight(0xffffff, 1.15);
   key.position.set(3, 6, 5); scene.add(key);
-  const rim = new THREE.DirectionalLight(0x9db4ff, 0.9);
+  const rim = new THREE.DirectionalLight(0x9db4ff, 0.7);
   rim.position.set(-5, 3, -4); scene.add(rim);
   const brassLight = new THREE.PointLight(0xc9a75f, 1.1, 14);
   brassLight.position.set(-3, 2.2, 3.2); scene.add(brassLight);
@@ -667,9 +670,9 @@ if (!reduceMotion) document.querySelectorAll('.magnetic').forEach(btn => {
   under.position.set(0, -1, 2.5); scene.add(under);
 
   /* --- materials --- */
-  const bodyMat   = new THREE.MeshStandardMaterial({color: 0x0c0c0f, metalness: 0.75, roughness: 0.3});
-  const chromeMat = new THREE.MeshStandardMaterial({color: 0xffffff, metalness: 1.0, roughness: 0.08});
-  const jointMat  = new THREE.MeshStandardMaterial({color: 0x1a1a1f, metalness: 0.6, roughness: 0.45});
+  const bodyMat   = new THREE.MeshStandardMaterial({color: 0xf2f0ea, metalness: 0.25, roughness: 0.35});
+  const chromeMat = new THREE.MeshStandardMaterial({color: 0xffffff, metalness: 0.9, roughness: 0.12});
+  const jointMat  = new THREE.MeshStandardMaterial({color: 0xb9b6ae, metalness: 0.5, roughness: 0.45});
   const brassMat  = new THREE.MeshStandardMaterial({color: 0xc9a75f, metalness: 0.9, roughness: 0.3, emissive: 0x6b5220, emissiveIntensity: 0.6});
 
   const robot = new THREE.Group();
@@ -749,7 +752,7 @@ if (!reduceMotion) document.querySelectorAll('.magnetic').forEach(btn => {
   robot.add(armL, armR);
 
   /* --- floor grid --- */
-  const grid = new THREE.GridHelper(30, 34, 0x26262c, 0x131316);
+  const grid = new THREE.GridHelper(30, 34, 0x2a2a30, 0x15151a);
   grid.position.y = -1.25;
   scene.add(grid);
 
@@ -838,13 +841,13 @@ document.getElementById('sendBtn').addEventListener('click', () => {
   const subject = document.getElementById('fSubject').value.trim() || 'Portfolio enquiry';
   const msg = document.getElementById('fMsg').value.trim();
   if (!name || !email || !msg){ showToast('Please fill in name, email and message'); return; }
-  const body = encodeURIComponent(`${msg}\n\n— ${name} (${email})`);
+  const body = encodeURIComponent(`${msg}\n\n- ${name} (${email})`);
   location.href = `mailto:cyanramkissoon@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
   showToast('Opening your email client…');
 });
 
 /* ================================================= */
-/* ============ CHESS — engine from scratch ========= */
+/* ============ CHESS - engine from scratch ========= */
 /* ================================================= */
 const PVAL = {p:100, n:300, b:320, r:500, q:900, k:20000};
 const UNI = {P:'♙',N:'♘',B:'♗',R:'♖',Q:'♕',K:'♔',p:'♟',n:'♞',b:'♝',r:'♜',q:'♛',k:'♚'};
@@ -864,7 +867,7 @@ function chInit(){
   C = { b, castle:{K:true,Q:true,k:true,q:true}, ep:-1,
         sel:-1, moves:[], last:[-1,-1], over:'', thinking:false };
   document.getElementById('chLog').innerHTML = '';
-  setStatus('Your move — you\'re white ♔');
+  setStatus('Your move - you\'re white ♔');
   chRender();
 }
 
@@ -1026,8 +1029,8 @@ function verdict(w){ // side to move; returns end text or null
   if (legalMoves(C, w).length) return null;
   const ki = C.b.indexOf(w ? 'K' : 'k');
   if (attacked(C.b, ki, !w))
-    return w ? 'Checkmate — the coach wins ♞ Rematch?' : 'Checkmate — you beat the coach! ♔👑';
-  return 'Stalemate — a draw. Well held.';
+    return w ? 'Checkmate - the coach wins ♞ Rematch?' : 'Checkmate - you beat the coach! ♔👑';
+  return 'Stalemate - a draw. Well held.';
 }
 
 function inCheck(w){
@@ -1096,31 +1099,31 @@ let botGreeted = false;
 
 const BOT_KB = [
   { k:['hello','hi ','hey','yo ','sup','morning','afternoon'],
-    a:"Hey! 👋 I'm CianBot — Cian's on-site assistant. Ask me about his <b>skills</b>, <b>projects</b>, <b>experience</b>, or how to <b>hire</b> him." },
+    a:"Hey! 👋 I'm CianBot - Cian's on-site assistant. Ask me about his <b>skills</b>, <b>projects</b>, <b>experience</b>, or how to <b>hire</b> him." },
   { k:['skill','stack','tech','language','framework','know'],
-    a:"Cian works mainly with <b>Python, JavaScript, C# and SQL</b> — React and Node.js on the web, Unity 6 for games, and reinforcement learning / Monte Carlo methods on the AI side. Full breakdown in the <a href='#skills'>Skills section</a>." },
+    a:"Cian works mainly with <b>Python, JavaScript, C# and SQL</b> - React and Node.js on the web, Unity 6 for games, and reinforcement learning / Monte Carlo methods on the AI side. Full breakdown in the <a href='#skills'>Skills section</a>." },
   { k:['project','portfolio','built','work','riftborn','game','voice','blackjack'],
-    a:"Highlights: <b>Riftborn</b> (a monster-collecting mobile RPG in Unity 6), an <b>AI Voice Assistant</b> (his final-year project), a <b>Blackjack RL agent</b> in Python — and this very site, chess engine included. See <a href='#projects'>Projects</a>." },
+    a:"Highlights: <b>Riftborn</b> (a monster-collecting mobile RPG in Unity 6), an <b>AI Voice Assistant</b> (his final-year project), a <b>Blackjack RL agent</b> in Python - and this very site, chess engine included. See <a href='#projects'>Projects</a>." },
   { k:['chess','play','coach','board','beat'],
-    a:"Cian coaches chess at primary schools with Kings & Queens Chess Club. And yes — you can play his bot right now in the <a href='#play'>Play section</a>. Try Coach Mode if you're feeling brave ♞" },
+    a:"Cian coaches chess at primary schools with Kings & Queens Chess Club. And yes - you can play his bot right now in the <a href='#play'>Play section</a>. Try Coach Mode if you're feeling brave ♞" },
   { k:['hire','job','freelance','available','opportun','recruit','role','position'],
-    a:"Good news — he's <b>open to opportunities</b>: freelance and full-time, UK-based or remote. Software development, web, games, or AI-adjacent roles all fit. Drop him a line via the <a href='#contact'>contact form</a>." },
+    a:"Good news - he's <b>open to opportunities</b>: freelance and full-time, UK-based or remote. Software development, web, games, or AI-adjacent roles all fit. Drop him a line via the <a href='#contact'>contact form</a>." },
   { k:['experience','history','background','university','degree','study','education','hertfordshire'],
-    a:"Cian holds a <b>BSc in Computer Science with AI</b> from the University of Hertfordshire, and has worked as a Student Guide there plus as a chess coach. The full timeline is in <a href='#experience'>Experience</a>." },
+    a:"Cian holds a <b>BSc (Hons) in Computer Science with AI, 2:1</b> from the University of Hertfordshire (awarded July 2026), and has worked as a Student Guide there plus as a chess coach. The full timeline is in <a href='#experience'>Experience</a>." },
   { k:['contact','email','reach','message','touch'],
-    a:"Easiest way: <b>cyanramkissoon@gmail.com</b> — or use the <a href='#contact'>contact form</a>, which opens a pre-filled email. His GitHub is <a href='https://github.com/Sakaki24o' target='_blank'>Sakaki24o</a>." },
+    a:"Easiest way: <b>cyanramkissoon@gmail.com</b> - or use the <a href='#contact'>contact form</a>, which opens a pre-filled email. His GitHub is <a href='https://github.com/Sakaki24o' target='_blank'>Sakaki24o</a>." },
   { k:['cv','resume','curriculum'],
-    a:"Cian's CV is available on request — the quickest route is emailing <b>cyanramkissoon@gmail.com</b> with a line about the role, and he'll send it over." },
+    a:"Cian's CV is available on request - the quickest route is emailing <b>cyanramkissoon@gmail.com</b> with a line about the role, and he'll send it over." },
   { k:['where','location','based','johannesburg','south africa','uk','remote'],
-    a:"He's based in <b>Johannesburg, South Africa</b>, and open to UK and remote opportunities — he studied and worked in the UK until recently." },
+    a:"He's based in <b>Johannesburg, South Africa</b>, and open to UK and remote opportunities - he studied and worked in the UK until recently." },
   { k:['who','about','cian','yourself'],
-    a:"Cian Ramkissoon: software developer, CS-with-AI graduate, chess coach, badminton player, and motorcyclist. Builder of games, web apps, and intelligent systems. More in <a href='#about'>About</a>." },
+    a:"Cian Ramkissoon: software developer, CS-with-AI graduate (2:1, 2026), chess coach, badminton player, and motorcyclist. Builder of games, web apps, and intelligent systems. More in <a href='#about'>About</a>." },
   { k:['robot','3d','site','website','how','made'],
-    a:"This site is hand-built — the 3D robot is <b>Three.js</b>, the chess engine is <b>vanilla JavaScript from scratch</b> (minimax with alpha-beta pruning), and I'm a lightweight rule-based bot living in the same file. No frameworks, no fluff." },
+    a:"This site is hand-built - the 3D robot is <b>Three.js</b>, the chess engine is <b>vanilla JavaScript from scratch</b> (minimax with alpha-beta pruning), and I'm a lightweight rule-based bot living in the same file. No frameworks, no fluff." },
   { k:['thank','thanks','cheers','cool','nice'],
-    a:"Anytime! If there's anything else, I'm one click away — or just email Cian directly. ♞" },
+    a:"Anytime! If there's anything else, I'm one click away - or just email Cian directly. ♞" },
 ];
-const BOT_FALLBACK = "Hmm, that one's beyond my little rule-book 🤖 — but Cian himself would love to answer. Reach him at <b>cyanramkissoon@gmail.com</b> or via the <a href='#contact'>contact form</a>. You can also try asking about his <b>skills</b>, <b>projects</b>, or <b>chess</b>.";
+const BOT_FALLBACK = "Hmm, that one's beyond my little rule-book 🤖 - but Cian himself would love to answer. Reach him at <b>cyanramkissoon@gmail.com</b> or via the <a href='#contact'>contact form</a>. You can also try asking about his <b>skills</b>, <b>projects</b>, or <b>chess</b>.";
 
 function botReply(text){
   const q = text.toLowerCase();
@@ -1159,7 +1162,7 @@ botFab.addEventListener('click', () => {
     botIn.focus();
     if (!botGreeted){
       botGreeted = true;
-      setTimeout(() => addMsg("Hey, I'm <b>CianBot</b> ♞ — ask me anything about Cian: his skills, projects, chess coaching, or how to hire him.", 'bot'), 300);
+      setTimeout(() => addMsg("Hey, I'm <b>CianBot</b> ♞ - ask me anything about Cian: his skills, projects, chess coaching, or how to hire him.", 'bot'), 300);
     }
   }
 });
